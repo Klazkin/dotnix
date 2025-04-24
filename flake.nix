@@ -10,34 +10,32 @@
     stylix.url = "github:danth/stylix/release-24.11";
   };
 
-  outputs = { self, nixpkgs,  ... }@inputs: { # home-manager, firefox-gnome-theme,
+  outputs = { self, nixpkgs, stylix, ... }@inputs: { # home-manager, firefox-gnome-theme,
     # Please replace my-nixos with your hostname
     nixosConfigurations.nixos =
-     let 
+     let
       system = "x86_64-linux";
 
 	  specialArgs = {
 	    inherit inputs;
 	  };
-      
+
       modules = [
+        stylix.nixosModules.stylix
 
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
         ./configuration.nix
 
-        inputs.stylix.nixosModules.stylix
-        
         inputs.home-manager.nixosModules.home-manager
         {
-			home-manager.useGlobalPkgs = true;
-			home-manager.useUserPackages = true;
-			home-manager.users.matpac = import ./home.nix;
-			home-manager.extraSpecialArgs = specialArgs;
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.matpac = import ./home.nix;
+          home-manager.extraSpecialArgs = specialArgs;
         }
       ];
-     in 
+     in
      nixpkgs.lib.nixosSystem { inherit system modules specialArgs; };
-    
   };
 }

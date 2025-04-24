@@ -11,10 +11,18 @@
 
   stylix = {
   	enable = true;
+  	autoEnable = true;
+
   	polarity = "dark";
-	# base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
   	base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+  	# base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
   	image = ./wallpaper.jpg;
+
+  	cursor = {
+  		name = "Bibata-Modern-Ice";
+  		package = pkgs.bibata-cursors;
+  	};
 
   	fonts = {
   		serif = {
@@ -29,7 +37,7 @@
 
 	    monospace = {
 	      package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
-	      name = "JetBrainsMonoNL Nerd Font";
+	      name = "JetBrainsMono Nerd Font";
 	    };
 
 	    emoji = config.stylix.fonts.monospace;
@@ -43,20 +51,20 @@
       # substituters = ["https://hyprland.cachix.org"];
       # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
-  
+
   # Bootloader
   boot = {
       plymouth = {
         enable = false;
-        # theme = "bgrt"; handeled by stylix
-        # themePackages = with pkgs; [
-        #   # By default we would install all themes
-        #   (adi1090x-plymouth-themes.override {
-        #     selected_themes = [ "loader_2" ];
-        #   })
-        # ];
+        theme = "bgrt"; # handeled by stylix
+        themePackages = with pkgs; [
+          # By default we would install all themes
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "loader_2" ];
+          })
+        ];
       };
-  
+
       # Enable "Silent Boot"
       consoleLogLevel = 0;
       initrd.verbose = false;
@@ -76,7 +84,7 @@
       loader.systemd-boot.enable = true;
       loader.efi.canTouchEfiVariables = true;
   };
-	
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -124,7 +132,7 @@
    	    [org.gnome.mutter]
    	    experimental-features=['scale-monitor-framebuffer']
    	  '';
-    };  
+    };
   };
 
   environment.gnome.excludePackages = (with pkgs; [
@@ -137,7 +145,7 @@
     gnome-characters
     gnome-music
     gnome-photos
-    gnome-terminal 
+    gnome-terminal
     gnome-tour
     xterm # xterm..
     hitori # sudoku game
@@ -145,8 +153,8 @@
     tali # poker game
     totem # video player
   ]);
-  
-     
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matpac = {
     isNormalUser = true;
@@ -196,14 +204,14 @@
         # };
       # };
   # };
-  
+
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.hyprland.enable = true;
-  #  
+  #
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
@@ -238,18 +246,18 @@
 #   hardware.graphics.extraPackages = with pkgs; [
 #     amdvlk
 #   ];
-# 
+#
 #   hardware.graphics.extraPackages32 = with pkgs; [
 #     driversi686Linux.amdvlk
 #   ];
 
   # manjaro mount
-  
+
   fileSystems."/mnt/manjaro" =
-  { 
+  {
   	device = "/dev/nvme0n1p2";
   	# options = [ "uid=1000" "gid=100" "dmask=007" "fmask=117" "nofail" ];
   	options = ["nofail"];
-  }; 
+  };
 
 }

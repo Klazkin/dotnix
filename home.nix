@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib,  ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -16,18 +16,18 @@
   # changes in each release.
   home.stateVersion = "24.11";
 
-  fonts.fontconfig.enable = true;  
-  
+  fonts.fontconfig.enable = true;
+
   # Add Firefox GNOME theme directory
   # home.file.".mozilla/firefox/default/chrome/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
-  
+
   programs.firefox = {
         enable = true;
   #       profiles.default = {
   #          name = "Default";
   #          settings = {
   #             "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-  # 
+  #
   #             # For Firefox GNOME theme:
   #             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   #             "browser.tabs.drawInTitlebar" = true;
@@ -35,12 +35,16 @@
   #          };
   #          userChrome = ''
   #             @import "firefox-gnome-theme/userChrome.css";
-  #             @import "firefox-gnome-theme/theme/colors/dark.css"; 
+  #             @import "firefox-gnome-theme/theme/colors/dark.css";
   #          '';
   #       };
   };
 
-  stylix.targets.firefox.firefoxGnomeTheme.enable = true;
+  programs.direnv = {
+  	enable = true;
+  	nix-direnv.enable = true;
+  	enableZshIntegration = true;
+  };
 
   nixpkgs = {
       config = {
@@ -57,10 +61,11 @@
 
   home.packages = with pkgs; [
   		# noto-fonts enabled through stylix
+  		montserrat # font
   		fastfetch
-  		lazygit
-  		modrinth-app
-  		# zulu23 - java 
+  		lazygit # tui git client
+  		modrinth-app # minecraft client
+  		# zulu23 - java
     	# (pkgs.nerdfonts.override { fonts = [ "Noto" "JetBrainsMono" ]; })
     	gnome-tweaks
     	dconf-editor
@@ -72,10 +77,9 @@
     	jetbrains.webstorm
     	jetbrains.rust-rover
     	discord
-    	gimp
+    	pinta # paint
         # steam, enabled in configuration.nix
-    	spotify-player
-		# vscode
+    	spotify-player # tui spotify client
 		# Development deps
     	godot_4
 		# rustc
@@ -87,8 +91,17 @@
     	# openssl.dev
     	# clang
     	# llvmPackages.bintools
-    	lutris
-    	
+    	# lutris
+    	# wine
+    	# wine64
+    	# winetricks
+     bottles # sandboxed wine environments
+     nixd # nix language server
+     nil # also a nix lang server
+     via # keybaord configurator (for supported models)
+     # gruvbox-dark-icons-gtk
+     gruvbox-plus-icons
+     spot
     	] ++ (with pkgs.gnomeExtensions; [
     	  user-themes
     	  appindicator
@@ -101,7 +114,101 @@
     	  date-menu-formatter
     	  desktop-cube
     	  accent-directories
+    	  dash-to-panel
+    	  useless-gaps
+    	  weather-or-not
+    	  unite
+    	  arc-menu
+    	  media-controls
+        quick-settings-audio-panel
   ]);
+
+  programs.vscode = {
+       enable = true;
+       extensions = with pkgs.vscode-extensions; [
+         teabyii.ayu
+         eamodio.gitlens
+         usernamehw.errorlens
+         rust-lang.rust-analyzer
+         mkhl.direnv
+         esbenp.prettier-vscode
+         ms-azuretools.vscode-docker
+         sainnhe.gruvbox-material
+         bbenoist.nix
+         aaron-bond.better-comments
+         tamasfe.even-better-toml
+       ];
+
+      userSettings = {
+        # This property will be used to generate settings.json:
+        # https://code.visualstudio.com/docs/getstarted/settings#_settingsjson
+        "editor.formatOnSave" = true;
+        # "workbench.colorTheme" = lib.mkForce "Gruvbox Material Dark"; # overwrites stylix theme
+        "workbench.colorTheme" = lib.mkForce "Ayu Mirage Bordered";
+        "editor.cursorSmoothCaretAnimation" = "on";
+        "workbench.iconTheme" = "ayu";
+        "window.titleBarStyle" = "custom";
+		"editor.fontLigatures" = true;
+      };
+  };
+
+  programs.bat = {
+    enable = true;
+  };
+
+  programs.zed-editor = {
+          enable = true;
+          extensions = ["nix" "toml" "elixir" "make"];
+
+          userSettings = {
+
+          	  lsp = {
+          	    rust-analyzer = {
+          	      binary = {
+          	        path_lookup = true;
+          	      };
+          	    };
+          	  };
+
+          	  assistant = {
+          	    enabled = true;
+          	    version = "2";
+          	    default_model = {
+          	      provider = "zed.dev";
+          	      model = "claude-3-5-sonnet-latest";
+          	    };
+          	  };
+
+          	  load_direnv = "shell_hook";
+          	  buffer_font_family = "JetBrainsMono Nerd Font";
+          	  ui_font_family = "Noto Sans";
+          	  buffer_font_weight = 200;
+
+          	  terminal = {
+          	    line_height = "standard";
+          	    env = {
+          	      TERM = "ghostty";
+          	    };
+          	  };
+
+          	  telemetry = {
+          	    diagnostics = true;
+          	    metrics = false;
+          	  };
+
+          	  ui_font_size = 24;
+          	  buffer_font_size = 22;
+
+          	  theme = {
+          	    mode = "system";
+          	    light = "One Light";
+          	    dark = "Gruvbox Dark Hard";
+          	  };
+
+          	  base_keymap = "JetBrains";
+
+          };
+  };
 
   # symbolic links for custom gtk css
   # xdg.configFile = {
@@ -109,10 +216,10 @@
   #   "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
   #   "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   # };
-  # 
+  #
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.thefuck.enable = true;
+  programs.thefuck.enable = true; # does it work?
   programs.ghostty = {
   	enable = true;
   	settings = {
@@ -123,16 +230,19 @@
   	      theme = "GruvboxDarkHard";
   	      # theme = "Ayu Mirage";
   	      # window-decoration = none;
-  	
+
   	      # The default is a bit intense for my liking
   	      # but it looks good with some themes
   	      unfocused-split-opacity = 1.0;
-  	
+
   	      # Some macOS settings
   	      window-theme = "dark";
-  	
+  	      shell-integration = "zsh";
+  	      gtk-titlebar=false;
+
+          background = config.lib.stylix.colors.base00; # for some reason does not work?
   	      # # Disables ligatures
-  	      # font-feature = ["-liga" "-dlig" "-calt"]; 
+  	      # font-feature = ["-liga" "-dlig" "-calt"];
   	    };
   };
     # Zsh
@@ -141,25 +251,27 @@
     autosuggestion.enable = true;
     enableCompletion = true;
     autocd = true;
-	syntaxHighlighting.enable = true;
+    syntaxHighlighting.enable = true;
 
-	initExtra = ''
-	          export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/.nix-profile/lib/pkgconfig
-	'';
-  	
+    initExtra = ''
+              export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/.nix-profile/lib/pkgconfig
+    '';
+
     shellAliases = {
       l = "ls -l";
       ll = "ls -larh";
       py = "python";
       rr = "ranger";
       mm = "micro";
-      gg = "lazygit";
+      rm = "rm -i";
       summ = "sudo micro";
+      gg = "lazygit";
+      zz = "zeditor";
       sfy = "spotify_player";
       update = "sudo nixos-rebuild switch";
     };
   };
-  
+
   programs.zsh.oh-my-zsh = {
   	enable = true;
   	plugins = [ "git" "thefuck" ];
@@ -179,13 +291,13 @@
 		"$schema" =  "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
 
   	    console_title_template =  "{{ .Folder }}";
-  		
+
   		transient_prompt = {
   		    background = "transparent";
   		    foreground = "gray";
   		    template = "{{ now | date \"15:04:05\" }} \\ue285 ";
   		};
-  		
+
   		blocks = [
   			{
   				type =  "prompt";
@@ -212,7 +324,7 @@
 				        foreground = "black";
 				        background = "white";
 				        properties = {
-				        	style = "mixed";	
+				        	style = "mixed";
 				        };
 				        template =  "{{ if ne .Path \"~\" }} {{ .Path }} {{ end }}";
 				        # exclude_folders = [ "/home/matpac" ];
@@ -265,7 +377,7 @@
                      type = "status";
                    }
   				];
-  			}	
+  			}
   		];
 
   	};
@@ -282,7 +394,7 @@
   	# }
   };
 
-  
+
 	# /org/gnome/shell/extensions/openbar/winbcolor ['0.812', '0.631', '0.435']
   dconf = {
       enable = true;
@@ -296,41 +408,44 @@
                    "openbar@neuromorph"
                    "user-theme@gnome-shell-extensions.gcampax.github.com"
                    "just-perfection-desktop@just-perfection" # crashes stylix on startup
+                   "dash-to-dock@micxgx.gmail.com"
 	           ];
-	           
+
 	           enabled-extensions = [
+	           	   "weatherornot@somepaulo.github.io"
                    "trayIconsReloaded@selfmade.pl"
                    "appindicatorsupport@rgcjonas.gmail.com"
                    "blur-my-shell@aunetx"
-                   "dash-to-dock@micxgx.gmail.com"
                    "accent-directories@taiwbi.com"
                    "system-monitor@gnome-shell-extensions.gcampax.github.com"
+                   "dash-to-panel@jderose9.github.com"
+                   "mediacontrols@cliffniff.github.com"
 	           ];
-	           
+
 	           favorite-apps = [
-	                   "firefox.desktop"
-	                   "rust-rover.desktop"
-	                   "webstorm.desktop"
+	                   # "firefox.desktop"
+	                   # "rust-rover.desktop"
+	                   # "webstorm.desktop"
 	                   # "code.desktop"
 	                   # "org.gnome.Terminal.desktop"
-	                   "spotify.desktop"
-	                   "discord.desktop"
-	                   "steam.desktop"
+	                   # "spotify.desktop"
+	                   # "discord.desktop"
+	                   # "steam.desktop"
 	           ];
-	           
+
 	      };
 
 	      "org/gnome/shell/extensions/openbar" = {
 	      		dark-bgcolor-wmax = ["0.0" "0.0" "1.0"];
 	      };
 	      	# lib.mkForce "${config.stylix.base16Scheme.base0E}";
-	      
+
           "org/gnome/desktop/interface" = {
           		# color-scheme = "prefer-dark"; # handeled by stylx
           		cursor-size = 32;
           		show-battery-percentage = true;
           };
-          
+
           "org/gnome/desktop/wm/preferences" = {
             workspace-names = [ "Main" ];
           };
@@ -340,21 +455,21 @@
 		  #       picture-uri = "file:///home/matpac/.local/share/backgrounds/2025-01-23-21-05-42-wallpaper.jpg";
 		  #       picture-uri-dark = "file:///home/matpac/.local/share/backgrounds/2025-01-23-21-05-42-wallpaper.jpg";
 		  # };
-		  
+
 		  "org/gnome/desktop/screensaver" = {
 		        picture-uri = "file:///home/matpac/.local/share/backgrounds/2025-01-23-21-05-42-wallpaper.jpg";
 		        primary-color = "#3465a4";
 		        secondary-color = "#000000";
 		  };
-		  
+
 		  "org/gnome/settings-daemon/plugins/media-keys" = {
-		          next = [ "<Shift><Control>n" ];
-		          previous = [ "<Shift><Control>p" ];
-		          play = [ "<Shift><Control>space" ];
+		          # next = [ "<Shift><Control>n" ];
+		          # previous = [ "<Shift><Control>p" ];
+		          # play = [ "<Shift><Control>space" ];
 		          custom-keybindings = [
 		            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"		          ];
 		  };
-		       
+
 		  "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
 		          name = "ghostty";
 		          command = "ghostty";
@@ -364,7 +479,7 @@
 		 # "org/gnome/shell/extensions/user-theme" = {
 		 #   name = "gruvbox";
 		 # };
-		 
+
       };
     };
 
@@ -375,7 +490,7 @@
     # 	name = "Tokyonight-Dark";
     # 	package = pkgs.tokyonight-gtk-theme;
     # };
-         
+
     # iconTheme = {
     #	name = "Tokyonight-Dark";
     #	package = pkgs.tokyo-night-gtk;
@@ -385,7 +500,7 @@
     #   name = "GruvboxPlus";
     #   package = gruvboxPlus;
     # };
-     
+
     # theme = {
     #   name = "gruvbox";
     #   package = pkgs.gruvbox-gtk-theme;
@@ -396,10 +511,10 @@
     #	package = pkgs.adw-gtk3;
     # };
 
-    cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
-    };
+    # cursorTheme = {
+    #   name = "Polarnight-Cursors";
+    #   package = pkgs.polarnight-cursors;
+    # };
 
     gtk3.extraConfig = {
       Settings = ''
@@ -421,8 +536,12 @@
   home.activation.removeOhMyPoshConfig = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
     rm -f ~/.config/oh-my-posh/config.json
   '';
-  
-  
+
+  stylix.targets.gtk.extraCss = ''
+        @define-color window_bg_color #${config.lib.stylix.colors.base00}b3;
+  '';
+
+
    # xdg.configFile."oh-my-posh/config.json".source = lib.mkForce("/home/matpac/.config/oh-my-posh/config-fixed.json");
    # xdg.configFile."oh-my-posh/config.json".force = true;
 
