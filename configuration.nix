@@ -8,7 +8,6 @@
       ./hardware-configuration.nix
     ];
 
-
   stylix = {
   	enable = true;
   	autoEnable = true;

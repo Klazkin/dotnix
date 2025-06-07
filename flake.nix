@@ -29,6 +29,7 @@
 
       modules = [
         stylix.nixosModules.stylix
+        inputs.zen-browser.homeModules.twilight
 
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
