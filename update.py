@@ -9,12 +9,14 @@ SUCCESS = "\uf00c"
 RED = "\033[91m"
 GREEN = "\033[92m"
 GRAY = "\033[37m"
+BLUE = "\033[93m"
 
 def clr_print(symbol, color, text):
     print(f"{color} {symbol} {text}\033[00m")
 
 def run(cmd, check=True, capture_output=False):
-    clr_print(NIX, GRAY, cmd)
+    color = BLUE if cmd.startswith("sudo") else GRAY
+    clr_print(NIX, color, cmd)
     result = subprocess.run(cmd, shell=True, check=check, capture_output=capture_output, text=True)
     return result.stdout.strip() if capture_output else None
 
