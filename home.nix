@@ -58,9 +58,9 @@ with lib.hm.gvariant;
     	gnome-settings-daemon
       # everforest-gtk-theme
       #	gruvbox-gtk-theme
-    	adwsteamgtk
-    	jetbrains.webstorm
-    	jetbrains.rust-rover
+    	# adwsteamgtk
+    	# jetbrains.webstorm
+    	# jetbrains.rust-rover
     	discord
     	pinta # paint
         # steam, enabled in configuration.nix
@@ -84,7 +84,7 @@ with lib.hm.gvariant;
      nil # also a nix lang server
      via # keybaord configurator (for supported models)
      # gruvbox-dark-icons-gtk
-     gruvbox-plus-icons
+     # gruvbox-plus-icons
      # spot
      # libreoffice
 
@@ -274,7 +274,7 @@ with lib.hm.gvariant;
       py = "python";
       rr = "yazi";
       mm = "micro";
-      rm = "rm -i";
+      rm = "rm -I";
       summ = "sudo micro";
       gg = "lazygit";
       zz = "zeditor";
