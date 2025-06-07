@@ -6,7 +6,7 @@ with lib.hm.gvariant;
   imports = [
     # For home-manager
     inputs.spicetify-nix.homeManagerModules.default
-    # inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.beta
   ];
 
   # Home Manager needs a bit of information about you and the
