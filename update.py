@@ -3,7 +3,7 @@ import sys
 import uuid
 
 ARROW = "\ue285"
-NIX = "\uf313 "
+NIX = "\uf313"
 ERROR = "\uf00d"
 SUCCESS = "\uf00c"
 
