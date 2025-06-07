@@ -9,6 +9,12 @@
     # firefox-gnome-theme = { url = "github:rafaelmardojai/firefox-gnome-theme"; flake = false; };
     stylix.url = "github:danth/stylix/release-24.11";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
+    zen-browser = {
+        url = "github:0xc000022070/zen-browser-flake";
+        # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+        # to have it up-to-date or simply don't specify the nixpkgs input
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
   };
 
   outputs = { self, nixpkgs, stylix, spicetify-nix, ... }@inputs: { # home-manager, firefox-gnome-theme,
