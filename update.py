@@ -3,7 +3,7 @@ import sys
 import uuid
 
 def run(cmd, check=True, capture_output=False):
-    print(f"\033[97m \uf313 \ue285 {cmd}\033[00m")
+    print(f"\033[37m \ue285 {cmd}\033[00m")
     result = subprocess.run(cmd, shell=True, check=check, capture_output=capture_output, text=True)
     return result.stdout.strip() if capture_output else None
 
