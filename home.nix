@@ -187,8 +187,8 @@ with lib.hm.gvariant;
           	    metrics = false;
           	  };
 
-          	  ui_font_size = 24;
-          	  buffer_font_size = 22;
+          	  # ui_font_size = 24;
+          	  # buffer_font_size = 22;
 
           	  theme = {
           	    mode = "system";
