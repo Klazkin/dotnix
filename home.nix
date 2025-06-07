@@ -98,7 +98,7 @@ with lib.hm.gvariant;
      # gruvbox-plus-icons
      # spot
      # libreoffice
-     inputs.zen-browser.packages."${system}".default.override
+     # inputs.zen-browser.packages."${system}".default.override
 
     	] ++ (with pkgs.gnomeExtensions; [
     	  appindicator
