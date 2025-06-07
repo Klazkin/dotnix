@@ -27,17 +27,18 @@ with lib.hm.gvariant;
   fonts.fontconfig.enable = true;
 
   programs.firefox = {
-        enable = true;
+      enable = true;
+
   };
 
-  programs.zen-browser = {
-      enable = true;
-      # policies = {
-      #   DisableAppUpdate = true;
-      #   DisableTelemetry = true;
-      #   # find more options here: https://mozilla.github.io/policy-templates/
-      # };
-  };
+  # programs.zen-browser = {
+  #     enable = true;
+  #     # policies = {
+  #     #   DisableAppUpdate = true;
+  #     #   DisableTelemetry = true;
+  #     #   # find more options here: https://mozilla.github.io/policy-templates/
+  #     # };
+  # };
 
   programs.direnv = {
   	enable = true;
@@ -97,6 +98,13 @@ with lib.hm.gvariant;
      # gruvbox-plus-icons
      # spot
      # libreoffice
+     inputs.zen-browser.packages."${system}".default.override {
+       policies = {
+           DisableAppUpdate = true;
+           DisableTelemetry = true;
+           # find more options here: https://mozilla.github.io/policy-templates/
+       };
+     }
 
     	] ++ (with pkgs.gnomeExtensions; [
     	  appindicator
