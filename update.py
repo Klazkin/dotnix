@@ -8,8 +8,8 @@ SUCCESS = "\uf00c"
 
 RED = "\033[91m"
 GREEN = "\033[92m"
+BLUE = "\033[94m"
 GRAY = "\033[37m"
-BLUE = "\033[93m"
 
 def clr_print(symbol, color, text):
     print(f"{color} {symbol} {text}\033[00m")
