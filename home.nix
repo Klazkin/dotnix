@@ -280,7 +280,7 @@ with lib.hm.gvariant;
       gg = "lazygit";
       zz = "zeditor";
       sfy = "spotify_player";
-      update = "cd ~/dotnix && py update.py";
+      update = "(cd ~/dotnix && py update.py)";
       update-nogit = "sudo nixos-rebuild switch --flake ~/dotnix";
     };
   };
