@@ -8,9 +8,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # firefox-gnome-theme = { url = "github:rafaelmardojai/firefox-gnome-theme"; flake = false; };
     stylix.url = "github:danth/stylix/release-24.11";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
   };
 
-  outputs = { self, nixpkgs, stylix, ... }@inputs: { # home-manager, firefox-gnome-theme,
+  outputs = { self, nixpkgs, stylix, spicetify-nix, ... }@inputs: { # home-manager, firefox-gnome-theme,
     # Please replace my-nixos with your hostname
     nixosConfigurations.nixos =
      let

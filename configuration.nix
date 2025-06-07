@@ -129,8 +129,8 @@
    	  extraGSettingsOverrides = ''
    	    [org.gnome.desktop.peripherals.touchpad]
    	    click-method='default'
-   	    [org.gnome.mutter]
-   	    experimental-features=['scale-monitor-framebuffer']
+   	    # [org.gnome.mutter]
+   	    # experimental-features=['scale-monitor-framebuffer']
    	  '';
     };
   };
@@ -177,7 +177,7 @@
       micro
       wget
       python313
-  	  ranger
+  	  yazi
   	  bottom
   	  zellij
   	  # noto-fonts
@@ -260,4 +260,6 @@
   	options = ["nofail"];
   };
 
+  # lower boot time by skipping the wait for network
+  systemd.services.NetworkManager-wait-online.enable = false;
 }
