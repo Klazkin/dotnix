@@ -138,7 +138,8 @@ with lib.hm.gvariant;
         "workbench.iconTheme" = "ayu";
         "window.titleBarStyle" = "custom";
         "editor.fontLigatures" = true;
-        "godotTools.editorPath.godot4"=  "/etc/profiles/per-user/matpac/bin/godot4";
+        "godotTools.editorPath.godot4" =  "/etc/profiles/per-user/matpac/bin/godot4";
+        "editor.smoothScrolling" = true;
       };
   };
 
