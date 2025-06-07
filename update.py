@@ -52,8 +52,7 @@ def main():
             run(f"git commit -m \"{commit_msg}\"")
             run("git push origin HEAD")
 
-        # run("sudo nixos-rebuild switch")
-        run("sudo echo DONE")
+        run("sudo nixos-rebuild switch --flake ~/dotnix")
         clr_print(SUCCESS, GREEN, "Rebuild complete.")
     except subprocess.CalledProcessError as e:
         clr_print(ERROR, RED, f"Command failed: {e}")
