@@ -17,7 +17,7 @@
       };
   };
 
-  outputs = { self, nixpkgs, stylix, spicetify-nix, ... }@inputs: { # home-manager, firefox-gnome-theme,
+  outputs = { self, nixpkgs, stylix, ... }@inputs: { # home-manager, firefox-gnome-theme,
     # Please replace my-nixos with your hostname
     nixosConfigurations.nixos =
      let
