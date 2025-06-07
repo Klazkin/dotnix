@@ -3,7 +3,7 @@ import sys
 import uuid
 
 def run(cmd, check=True, capture_output=False):
-    print(f"$ {cmd}")
+    print(f"\\uF313 {cmd}")
     result = subprocess.run(cmd, shell=True, check=check, capture_output=capture_output, text=True)
     return result.stdout.strip() if capture_output else None
 
