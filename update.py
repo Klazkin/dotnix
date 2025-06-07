@@ -2,8 +2,19 @@ import subprocess
 import sys
 import uuid
 
+NIX = "\ue285"
+ERROR = "\uf00d"
+SUCCESS = "\uf00c"
+
+RED = "\033[91m"
+GREEN = "\033[92m"
+GRAY = "\033[37m"
+
+def clr_print(symbol, color, text):
+    print(f"{color} {symbol} {text}\033[00m")
+
 def run(cmd, check=True, capture_output=False):
-    print(f"\033[37m \ue285 {cmd}\033[00m")
+    clr_print(NIX, GRAY, cmd)
     result = subprocess.run(cmd, shell=True, check=check, capture_output=capture_output, text=True)
     return result.stdout.strip() if capture_output else None
 
@@ -15,12 +26,12 @@ def has_remote_changes():
 
     if local != remote:
         if local == base:
-            print("❌ Your branch is behind the remote. Please pull changes.")
+            clr_print(ERROR, RED, "Your branch is behind the remote. Please pull changes.")
             return True
         elif remote == base:
             return False
         else:
-            print("❌ Your branch and remote have diverged.")
+            clr_print(ERROR, RED, "Your branch and remote have diverged.")
             return True
     return False
 
@@ -41,9 +52,9 @@ def main():
 
         # run("sudo nixos-rebuild switch")
         run("echo DONE")
-        print("✅ Rebuild complete.")
+        clr_print(SUCCESS, GREEN, "Rebuild complete.")
     except subprocess.CalledProcessError as e:
-        print(f"Command failed: {e}")
+        clr_print(ERROR, RED, f"Command failed: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
