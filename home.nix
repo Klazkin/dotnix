@@ -6,7 +6,6 @@ with lib.hm.gvariant;
   imports = [
     # For home-manager
     inputs.spicetify-nix.homeManagerModules.default
-    inputs.zen-browser.homeModules.beta
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -32,14 +31,14 @@ with lib.hm.gvariant;
   };
 
 
-  # programs.zen-browser = {
-  #     enable = true;
-  #     # policies = {
-  #     #   DisableAppUpdate = true;
-  #     #   DisableTelemetry = true;
-  #     #   # find more options here: https://mozilla.github.io/policy-templates/
-  #     # };
-  # };
+  programs.zen-browser = {
+      enable = true;
+      # policies = {
+      #   DisableAppUpdate = true;
+      #   DisableTelemetry = true;
+      #   # find more options here: https://mozilla.github.io/policy-templates/
+      # };
+  };
 
   programs.direnv = {
   	enable = true;
@@ -99,7 +98,7 @@ with lib.hm.gvariant;
      # gruvbox-plus-icons
      # spot
      # libreoffice
-     # inputs.zen-browser.packages."${system}".default.override
+     # inputs.zen-browser.packages."${system}".default
 
     	] ++ (with pkgs.gnomeExtensions; [
     	  appindicator
