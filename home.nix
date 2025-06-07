@@ -98,13 +98,7 @@ with lib.hm.gvariant;
      # gruvbox-plus-icons
      # spot
      # libreoffice
-     inputs.zen-browser.packages."${system}".default.override {
-       policies = {
-           DisableAppUpdate = true;
-           DisableTelemetry = true;
-           # find more options here: https://mozilla.github.io/policy-templates/
-       };
-     }
+     inputs.zen-browser.packages."${system}".default.override
 
     	] ++ (with pkgs.gnomeExtensions; [
     	  appindicator
