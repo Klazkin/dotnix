@@ -51,7 +51,7 @@ def main():
             run("git push origin HEAD")
 
         # run("sudo nixos-rebuild switch")
-        run("echo DONE")
+        run("sudo echo DONE")
         clr_print(SUCCESS, GREEN, "Rebuild complete.")
     except subprocess.CalledProcessError as e:
         clr_print(ERROR, RED, f"Command failed: {e}")
