@@ -2,7 +2,8 @@ import subprocess
 import sys
 import uuid
 
-NIX = "\ue285"
+ARROW = "\ue285"
+NIX = "\uf313"
 ERROR = "\uf00d"
 SUCCESS = "\uf00c"
 
@@ -15,8 +16,8 @@ def clr_print(symbol, color, text):
     print(f"{color} {symbol} {text}\033[00m")
 
 def run(cmd, check=True, capture_output=False):
-    color = BLUE if cmd.startswith("sudo") else GRAY
-    clr_print(NIX, color, cmd)
+    symbol, color = (NIX, BLUE) if cmd.startswith("sudo") else (ARROW, GRAY)
+    clr_print(symbol, color, cmd)
     result = subprocess.run(cmd, shell=True, check=check, capture_output=capture_output, text=True)
     return result.stdout.strip() if capture_output else None
 
