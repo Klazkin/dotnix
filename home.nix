@@ -235,7 +235,7 @@ with lib.hm.gvariant;
     settings = {
       font-size = 14;
       # font-family = "JetBrainsMonoNL Nerd Font";
-      background-opacity = 0.0; # opacity is set with custom gtk css
+      background-opacity = 0.7; # opacity is set with custom gtk css
       background-blur-radius = 20;
       theme = "GruvboxDarkHard";
       # theme = "Ayu Mirage";
