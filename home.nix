@@ -481,7 +481,7 @@ with lib.hm.gvariant;
           "org.gnome.Extensions"
           "org.gnome.Settings"
           "org.gnome.Shell.Extensions"
-          "org.gnome.Weather"
+          "org.gnome.*" # Weather
           "com.usebottles.bottles"
           "org.gnome.Extensions"
           "org.gnome.tweaks"
@@ -489,7 +489,7 @@ with lib.hm.gvariant;
           "org.gnome.baobab"
           ".guake-wrapped"
           "Code"
-          "zen-beta
+          "zen-beta"
         ];
       };
       "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab".pipeline =
