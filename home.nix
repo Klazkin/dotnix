@@ -159,7 +159,23 @@ with lib.hm.gvariant;
 
     userSettings = {
 
-      lsp = { rust-analyzer = { binary = { path_lookup = true; }; }; };
+      lsp = {
+        rust-analyzer = { binary = { path_lookup = true; }; };
+      };
+
+      languages = {
+              Nix = {
+                language_servers = [
+                  "nil"
+                  "!nixd"
+                ];
+                formatter = {
+                  external = {
+                    command = "nixfmt";
+                  };
+                };
+              };
+      };
 
       assistant = {
         enabled = true;
