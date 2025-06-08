@@ -1,1 +1,1 @@
-Dotnix files
+# Klazkin Dot files for Nixos

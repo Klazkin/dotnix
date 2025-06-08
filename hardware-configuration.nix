@@ -4,27 +4,26 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6779f60c-ed0b-490d-bb6f-049afcbe565a";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/6779f60c-ed0b-490d-bb6f-049afcbe565a";
+    fsType = "ext4";
+  };
 
-  boot.initrd.luks.devices."luks-99f301d7-2a86-4877-b052-1bd04c2fd1db".device = "/dev/disk/by-uuid/99f301d7-2a86-4877-b052-1bd04c2fd1db";
+  boot.initrd.luks.devices."luks-99f301d7-2a86-4877-b052-1bd04c2fd1db".device =
+    "/dev/disk/by-uuid/99f301d7-2a86-4877-b052-1bd04c2fd1db";
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A865-A22B";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/A865-A22B";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
 
   swapDevices = [ ];
 
@@ -36,5 +35,6 @@
   # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

@@ -10,39 +10,36 @@
     stylix.url = "github:danth/stylix/release-24.11";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
     zen-browser = {
-        url = "github:0xc000022070/zen-browser-flake";
-        # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-        # to have it up-to-date or simply don't specify the nixpkgs input
-        # inputs.nixpkgs.follows = "nixpkgs";
-      };
+      url = "github:0xc000022070/zen-browser-flake";
+      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+      # to have it up-to-date or simply don't specify the nixpkgs input
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, stylix, ... }@inputs: { # home-manager, firefox-gnome-theme,
-    # Please replace my-nixos with your hostname
-    nixosConfigurations.nixos =
-     let
-      system = "x86_64-linux";
+  outputs = { self, nixpkgs, stylix, ...
+    }@inputs: { # home-manager, firefox-gnome-theme,
+      # Please replace my-nixos with your hostname
+      nixosConfigurations.nixos = let
+        system = "x86_64-linux";
 
-	  specialArgs = {
-	    inherit inputs;
-	  };
+        specialArgs = { inherit inputs; };
 
-      modules = [
-        stylix.nixosModules.stylix
+        modules = [
+          stylix.nixosModules.stylix
 
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./configuration.nix
+          # Import the previous configuration.nix we used,
+          # so the old configuration file still takes effect
+          ./configuration.nix
 
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.matpac = import ./home.nix;
-          home-manager.extraSpecialArgs = specialArgs;
-        }
-      ];
-     in
-     nixpkgs.lib.nixosSystem { inherit system modules specialArgs; };
-  };
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.matpac = import ./home.nix;
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+        ];
+      in nixpkgs.lib.nixosSystem { inherit system modules specialArgs; };
+    };
 }

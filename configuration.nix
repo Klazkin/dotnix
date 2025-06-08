@@ -1,87 +1,86 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, ... }:
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+{ config, pkgs, ... }: {
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   stylix = {
-  	enable = true;
-  	autoEnable = true;
+    enable = true;
+    autoEnable = true;
 
-  	polarity = "dark";
-  	base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
-  	# base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-  	image = ./wallpaper.jpg;
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+    image = ./wallpaper.jpg;
 
-  	cursor = {
-  		name = "Bibata-Modern-Ice";
-  		package = pkgs.bibata-cursors;
-  	};
+    cursor = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+    };
 
-  	fonts = {
-  		serif = {
-	      package = pkgs.noto-fonts;
-	      name = "Noto Serif";
-	    };
+    fonts = {
+      serif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Serif";
+      };
 
-	    sansSerif = {
-	      package = pkgs.noto-fonts;
-	      name = "Noto Sans";
-	    };
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
 
-	    monospace = {
-	      package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
-	      name = "JetBrainsMono Nerd Font";
-	    };
+      monospace = {
+        package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        name = "JetBrainsMono Nerd Font";
+      };
 
-	    emoji = config.stylix.fonts.monospace;
-  	};
+      emoji = config.stylix.fonts.monospace;
+    };
   };
 
   nix.settings = {
-      experimental-features = "nix-command flakes";
+    experimental-features = "nix-command flakes";
 
-      # enables caching for hyprland, no longer needed
-      # substituters = ["https://hyprland.cachix.org"];
-      # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    # enables caching for hyprland, no longer needed
+    # substituters = ["https://hyprland.cachix.org"];
+    # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
   # Bootloader
   boot = {
-      plymouth = {
-        enable = false;
-        theme = "bgrt"; # handeled by stylix
-        themePackages = with pkgs; [
+    plymouth = {
+      enable = false;
+      theme = "bgrt"; # handeled by stylix
+      themePackages = with pkgs;
+        [
           # By default we would install all themes
           (adi1090x-plymouth-themes.override {
             selected_themes = [ "loader_2" ];
           })
         ];
-      };
+    };
 
-      # Enable "Silent Boot"
-      consoleLogLevel = 0;
-      initrd.verbose = false;
-      kernelParams = [
-        "quiet"
-        "splash"
-        "boot.shell_on_fail"
-        "loglevel=3"
-        "rd.systemd.show_status=false"
-        "rd.udev.log_level=3"
-        "udev.log_priority=3"
-      ];
-      # Hide the OS choice for bootloaders.
-      # It's still possible to open the bootloader list by pressing any key
-      # It will just not appear on screen unless a key is pressed
-      loader.timeout = 3;
-      loader.systemd-boot.enable = true;
-      loader.efi.canTouchEfiVariables = true;
+    # Enable "Silent Boot"
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 3;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -122,15 +121,11 @@
   # Gnome
   services.xserver = {
     displayManager.gdm.enable = true;
-   	desktopManager.gnome = {
-   	  enable = true;
-   	  extraGSettingsOverridePackages = [ pkgs.mutter ];
-   	  extraGSettingsOverrides = ''
-   	    [org.gnome.desktop.peripherals.touchpad]
-   	    click-method='default'
-   	    # [org.gnome.mutter]
-   	    # experimental-features=['scale-monitor-framebuffer']
-   	  '';
+    desktopManager.gnome = {
+      enable = true;
+      extraGSettingsOverridePackages = [ pkgs.mutter ];
+      extraGSettingsOverrides =
+        "  [org.gnome.desktop.peripherals.touchpad]\n  click-method='default'\n  # [org.gnome.mutter]\n  # experimental-features=['scale-monitor-framebuffer']\n";
     };
   };
 
@@ -153,13 +148,12 @@
     totem # video player
   ]);
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matpac = {
     isNormalUser = true;
     description = "Matthew";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
@@ -173,16 +167,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-      micro
-      wget
-      python313
-  	  yazi
-  	  bottom
-  	  zellij
-  	  # noto-fonts
-  	  # (pkgs.nerdfonts.override { fonts = [ "Noto" "JetBrainsMono" ]; })
-  	  # greetd.tuigreet
-  	  # npins
+    micro
+    wget
+    python313
+    yazi
+    bottom
+    zellij
+    # noto-fonts
+    # (pkgs.nerdfonts.override { fonts = [ "Noto" "JetBrainsMono" ]; })
+    # greetd.tuigreet
+    # npins
   ];
 
   programs.htop.enable = true;
@@ -190,18 +184,20 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
   };
 
   # services.greetd = {
-      # enable = true;
-      # settings = {
-        # default_session = {
-          # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
-          # user = "matpac";
-        # };
-      # };
+  # enable = true;
+  # settings = {
+  # default_session = {
+  # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+  # user = "matpac";
+  # };
+  # };
   # };
 
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -242,21 +238,20 @@
   };
 
   # amd graphics, use default mesa driver instead!!
-#   hardware.graphics.extraPackages = with pkgs; [
-#     amdvlk
-#   ];
-#
-#   hardware.graphics.extraPackages32 = with pkgs; [
-#     driversi686Linux.amdvlk
-#   ];
+  #   hardware.graphics.extraPackages = with pkgs; [
+  #     amdvlk
+  #   ];
+  #
+  #   hardware.graphics.extraPackages32 = with pkgs; [
+  #     driversi686Linux.amdvlk
+  #   ];
 
   # manjaro mount
 
-  fileSystems."/mnt/manjaro" =
-  {
-  	device = "/dev/nvme0n1p2";
-  	# options = [ "uid=1000" "gid=100" "dmask=007" "fmask=117" "nofail" ];
-  	options = ["nofail"];
+  fileSystems."/mnt/manjaro" = {
+    device = "/dev/nvme0n1p2";
+    # options = [ "uid=1000" "gid=100" "dmask=007" "fmask=117" "nofail" ];
+    options = [ "nofail" ];
   };
 
   # lower boot time by skipping the wait for network
