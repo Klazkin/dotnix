@@ -118,6 +118,7 @@ with lib.hm.gvariant;
         jnoortheen.nix-ide
         aaron-bond.better-comments
         tamasfe.even-better-toml
+        s-nlf-fh.glassit
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "godot-tools";
