@@ -84,6 +84,7 @@ with lib.hm.gvariant;
      bottles # sandboxed wine environments
      nixd # nix language server
      nil # also a nix lang server
+     nixfmt # nix formatter
      via # keybaord configurator (for supported models)
      # gruvbox-dark-icons-gtk
      # gruvbox-plus-icons
