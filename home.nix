@@ -131,12 +131,12 @@ with lib.hm.gvariant;
           version = "0.4.1";
           sha256 = "sha256-fg8dehS6DKe1FuUCkta4P4f7uvkq+lfeCjcnf02m3nE=";
         }
-        {
-          name = "glassit";
-          publisher = "s-nlf-fh";
-          version = "0.2.6";
-          sha256 = "sha256-LcAomgK91hnJWqAW4I0FAgTOwr8Kwv7ZhvGCgkokKuY=";
-        }
+        # {
+        #   name = "glassit";
+        #   publisher = "s-nlf-fh";
+        #   version = "0.2.6";
+        #   sha256 = "sha256-LcAomgK91hnJWqAW4I0FAgTOwr8Kwv7ZhvGCgkokKuY=";
+        # }
         # todo add rust snippets extensions
       ];
 
@@ -144,8 +144,8 @@ with lib.hm.gvariant;
       # This property will be used to generate settings.json:
       # https://code.visualstudio.com/docs/getstarted/settings#_settingsjson
       "editor.formatOnSave" = true;
-      # "workbench.colorTheme" =
-      #   lib.mkForce "Gruvbox Material Dark"; # overwrites stylix theme
+      "workbench.colorTheme" =
+        lib.mkForce "Gruvbox Material Dark"; # overwrites stylix theme
       # "workbench.colorTheme" = lib.mkForce "Ayu Mirage Bordered";
       "editor.cursorSmoothCaretAnimation" = "on";
       "workbench.iconTheme" = "ayu";
@@ -154,7 +154,7 @@ with lib.hm.gvariant;
       "godotTools.editorPath.godot4" =
         "/etc/profiles/per-user/matpac/bin/godot4";
       "editor.smoothScrolling" = true;
-      "glassit.alpha" = 176;
+      # "glassit.alpha" = 176;
     };
   };
 
