@@ -118,7 +118,6 @@ with lib.hm.gvariant;
         jnoortheen.nix-ide
         aaron-bond.better-comments
         tamasfe.even-better-toml
-        s-nlf-fh.glassit
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "godot-tools";
@@ -130,6 +129,12 @@ with lib.hm.gvariant;
           name = "godot-rust-vscode";
           publisher = "dsobotta";
           version = "0.4.1";
+          sha256 = "sha256-fg8dehS6DKe1FuUCkta4P4f7uvkq+lfeCjcnf02m3nE=";
+        }
+        {
+          name = "glassit";
+          publisher = "s-nlf-fh";
+          version = "0.2.6";
           sha256 = "sha256-fg8dehS6DKe1FuUCkta4P4f7uvkq+lfeCjcnf02m3nE=";
         }
         # todo add rust snippets extensions
