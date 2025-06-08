@@ -489,6 +489,7 @@ with lib.hm.gvariant;
           "org.gnome.baobab"
           ".guake-wrapped"
           "Code"
+          "zen-beta
         ];
       };
       "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab".pipeline =
