@@ -113,7 +113,7 @@ with lib.hm.gvariant;
          esbenp.prettier-vscode
          ms-azuretools.vscode-docker
          sainnhe.gruvbox-material
-         bbenoist.nix
+         jnoortheen.nix-ide
          aaron-bond.better-comments
          tamasfe.even-better-toml
        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
