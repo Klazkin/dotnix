@@ -487,6 +487,7 @@ with lib.hm.gvariant;
           "org.gnome.tweaks"
           "dev.alextren.Spot"
           "org.gnome.baobab"
+          "org.gnome.Nautilus"
           ".guake-wrapped"
           "Code"
           "zen-beta"
@@ -763,6 +764,10 @@ with lib.hm.gvariant;
 
   stylix.targets.gtk.extraCss = ''
     @define-color window_bg_color #${config.lib.stylix.colors.base00}b3;
+
+    window {
+       background-color: #${config.lib.stylix.colors.base00}b3;
+    }
   '';
 
   # xdg.configFile."oh-my-posh/config.json".source = lib.mkForce("/home/matpac/.config/oh-my-posh/config-fixed.json");
