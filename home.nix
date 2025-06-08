@@ -481,7 +481,7 @@ with lib.hm.gvariant;
           "org.gnome.Extensions"
           "org.gnome.Settings"
           "org.gnome.Shell.Extensions"
-          "org.gnome.*" # Weather
+          "org.gnome.Weather"
           "com.usebottles.bottles"
           "org.gnome.Extensions"
           "org.gnome.tweaks"
