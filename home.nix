@@ -235,7 +235,7 @@ with lib.hm.gvariant;
     settings = {
       font-size = 14;
       # font-family = "JetBrainsMonoNL Nerd Font";
-      background-opacity = 0.7;
+      background-opacity = 0.0; # opacity is set with custom gtk css
       background-blur-radius = 20;
       theme = "GruvboxDarkHard";
       # theme = "Ayu Mirage";
@@ -764,6 +764,7 @@ with lib.hm.gvariant;
 
   stylix.targets.gtk.extraCss = ''
     @define-color window_bg_color #${config.lib.stylix.colors.base00}b3;
+    # @define-color
 
     window {
        background-color: #${config.lib.stylix.colors.base00}b3;
