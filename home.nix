@@ -772,7 +772,7 @@ with lib.hm.gvariant;
   stylix.targets.gtk.extraCss = ''
     @define-color window_bg_color #${config.lib.stylix.colors.base00}b3;
 
-    * {
+    window {
        background-color: #${config.lib.stylix.colors.base00}b3;
     }
   '';
