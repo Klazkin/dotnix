@@ -135,7 +135,7 @@ with lib.hm.gvariant;
           name = "glassit";
           publisher = "s-nlf-fh";
           version = "0.2.6";
-          sha256 = "sha256-fg8dehS6DKe1FuUCkta4P4f7uvkq+lfeCjcnf02m3nE=";
+          sha256 = "sha256-LcAomgK91hnJWqAW4I0FAgTOwr8Kwv7ZhvGCgkokKuY=";
         }
         # todo add rust snippets extensions
       ];
