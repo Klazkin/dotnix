@@ -250,7 +250,7 @@ with lib.hm.gvariant;
 
       # The default is a bit intense for my liking
       # but it looks good with some themes
-      unfocused-split-opacity = 1.0;
+      unfocused-split-opacity = 0.0;
 
       # Some macOS settings
       window-theme = "dark";
