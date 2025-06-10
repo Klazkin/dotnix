@@ -709,6 +709,7 @@ with lib.hm.gvariant;
         # play = [ "<Shift><Control>space" ];
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         ];
       };
 
@@ -717,6 +718,13 @@ with lib.hm.gvariant;
           name = "ghostty";
           command = "ghostty";
           binding = "<Super>t";
+        };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
+        {
+          name = "rofi";
+          command = "rofi -show run";
+          binding = "<Super>r";
         };
 
       "org/gnome/shell/extensions/system-monitor" = {
