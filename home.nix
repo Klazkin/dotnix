@@ -45,8 +45,8 @@ with lib.hm.gvariant;
         }];
         name = "Home";
       }];
+      server = { port = 5678; };
     };
-    server = { port = 5678; };
   };
 
   programs.direnv = {
