@@ -28,7 +28,7 @@ with lib.hm.gvariant;
 
   programs.firefox = { enable = true; };
 
-  programs.rofi = { enable = true; };
+  programs.wofi = { enable = true; };
 
   services.glance = {
     enable = true;
