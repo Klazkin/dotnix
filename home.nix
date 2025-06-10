@@ -26,10 +26,9 @@ with lib.hm.gvariant;
 
   fonts.fontconfig.enable = true;
 
-  programs.firefox = {
-    enable = true;
+  programs.firefox = { enable = true; };
 
-  };
+  services.glance = { enable = true; };
 
   programs.direnv = {
     enable = true;
