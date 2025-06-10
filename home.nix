@@ -28,7 +28,10 @@ with lib.hm.gvariant;
 
   programs.firefox = { enable = true; };
 
-  programs.wofi = { enable = true; };
+  programs.wofi = {
+    enable = true;
+    settings = { location = "center"; };
+  };
 
   services.glance = {
     enable = true;
@@ -138,6 +141,7 @@ with lib.hm.gvariant;
         jnoortheen.nix-ide
         aaron-bond.better-comments
         tamasfe.even-better-toml
+        continue.continue
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "godot-tools";
@@ -518,6 +522,7 @@ with lib.hm.gvariant;
           ".guake-wrapped"
           "Code"
           "zen-beta"
+          "wofi"
         ];
       };
       "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab".pipeline =
