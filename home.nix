@@ -28,7 +28,23 @@ with lib.hm.gvariant;
 
   programs.firefox = { enable = true; };
 
-  services.glance = { enable = true; };
+  services.glance = {
+    enable = true;
+    pages = [{
+      columns = [{
+        size = "full";
+        widgets = [
+          { type = "calendar"; }
+          {
+            location = "Tallinn, Estonia";
+            type = "weather";
+          }
+        ];
+      }];
+      name = "Home";
+    }];
+    server = { port = 5678; };
+  };
 
   programs.direnv = {
     enable = true;
