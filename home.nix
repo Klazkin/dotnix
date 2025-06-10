@@ -30,19 +30,22 @@ with lib.hm.gvariant;
 
   services.glance = {
     enable = true;
-    pages = [{
-      columns = [{
-        size = "full";
-        widgets = [
-          { type = "calendar"; }
-          {
-            location = "Tallinn, Estonia";
-            type = "weather";
-          }
-        ];
+
+    settings = {
+      pages = [{
+        columns = [{
+          size = "full";
+          widgets = [
+            { type = "calendar"; }
+            {
+              location = "Tallinn, Estonia";
+              type = "weather";
+            }
+          ];
+        }];
+        name = "Home";
       }];
-      name = "Home";
-    }];
+    };
     server = { port = 5678; };
   };
 
