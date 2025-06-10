@@ -28,6 +28,8 @@ with lib.hm.gvariant;
 
   programs.firefox = { enable = true; };
 
+  programs.rofi = { enable = true; };
+
   services.glance = {
     enable = true;
 
