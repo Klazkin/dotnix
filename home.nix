@@ -728,7 +728,7 @@ with lib.hm.gvariant;
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
         {
           name = "wofi";
-          command = "wofi -show run";
+          command = "wofi --show run";
           binding = "<Super>r";
         };
 
