@@ -16,7 +16,7 @@ let
 
   modules = mkNixModules nixModules ++ [
 
-    ./hardware-configuration.nix
+    ./hosts/${hostName}/hardware-configuration.nix
 
     ./common/configuration.nix
 
