@@ -46,7 +46,6 @@
       "godotTools.editorPath.godot4" =
         "/etc/profiles/per-user/matpac/bin/godot4";
       "editor.smoothScrolling" = true;
-      # "glassit.alpha" = 176;
     };
   };
 

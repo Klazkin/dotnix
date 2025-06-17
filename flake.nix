@@ -1,6 +1,6 @@
 {
+  # Inspired by https://certifikate.io/blog/posts/2024/12/creating-a-multi-system-modular-nixos-configuration-with-flakes/
   description = "A simple NixOS flake";
-  # inspired by https://certifikate.io/blog/posts/2024/12/creating-a-multi-system-modular-nixos-configuration-with-flakes/
 
   inputs = {
     # NixOS official package source, using the nixos-24.11 branch here
@@ -12,7 +12,9 @@
     };
 
     stylix.url = "github:danth/stylix/release-24.11";
+
     spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
@@ -21,61 +23,23 @@
     };
   };
 
-  outputs = { self, ... }@inputs: {
+  outputs = { self, ... }@inputs:
+    let
+      user = "matpac";
 
-    # commonInherits = { inherit inputs; };
+      systems = {
+        # Framework 13 Laptop
+        framework = {
+          modules = [ ];
+          hmModules = [ ]; # ./modules/home-manager/vscode.nix
+        };
+      };
 
-    # user = "matpac";
-    #
-
-    # systems = {
-    # framework = {
-    #   modules = {
-
-    #   };
-    # };
-
-    # desktop = {
-    #   modules = {
-
-    #   };
-    # };
-    # };
-
-    # mkSystem = host: system:
-    #   import ./hosts.nix (commonInherits // {
-    #     hostName = "${host}";
-    #     user = system.user or user;
-    #   } // system);
-    #
-
-    # hosts = {
-
-    # };
-
-    nixosConfigurations.framework = let
-      system = "x86_64-linux";
-
-      specialArgs = { inherit inputs; };
-
-      modules = [
-        inputs.stylix.nixosModules.stylix
-
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./configuration.nix
-
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.matpac.imports =
-            [ ./home.nix ./modules/home-manager/vscode.nix ];
-
-          home-manager.extraSpecialArgs = specialArgs;
-        }
-
-      ];
-    in inputs.nixpkgs.lib.nixosSystem { inherit system modules specialArgs; };
-  };
+      mkSystem = host: system:
+        import ./hosts.nix ({
+          inherit inputs;
+          hostName = "${host}";
+          user = system.user or user;
+        } // system);
+    in { nixosConfigurations = inputs.nixpkgs.lib.mapAttrs mkSystem systems; };
 }
