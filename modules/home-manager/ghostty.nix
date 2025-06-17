@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, theme, ... }: {
 
   programs.ghostty = {
     enable = true;
@@ -8,7 +8,7 @@
       # use custom gtk for blur and opacity
       background-opacity = 0.0;
       background-blur-radius = 20;
-      theme = "GruvboxDarkHard";
+      theme = theme.ghostty;
       unfocused-split-opacity = 1.0;
       window-theme = "dark";
       shell-integration = "zsh";

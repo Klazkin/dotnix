@@ -31,10 +31,10 @@
         # Framework 13 Laptop
         framework = {
           theme = {
-            stylix = "gruvbox";
-            ghostty = "gruvbox";
-            vscode = "gruvbox";
-            wallpaper = "image.jpg";
+            stylix = "gruvbox-dark-hard";
+            ghostty = "GruvboxDarkHard";
+            vscode = "Gruvbox Material Dark";
+            wallpaper = ./wallpapers/manjaro.jpg;
           };
 
           nixModules = [
@@ -65,6 +65,7 @@
           inherit inputs;
           hostName = "${host}";
           user = system.user or user;
+          theme = system.theme;
         } // system);
     in { nixosConfigurations = inputs.nixpkgs.lib.mapAttrs mkSystem systems; };
 }

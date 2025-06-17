@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, theme, ... }: {
 
   programs.vscode = {
     enable = true;
@@ -34,9 +34,7 @@
 
     userSettings = {
       "editor.formatOnSave" = true;
-      "workbench.colorTheme" =
-        lib.mkForce "Gruvbox Material Dark"; # overwrite stylix theme
-      # "workbench.colorTheme" = lib.mkForce "Ayu Mirage Bordered";
+      "workbench.colorTheme" = lib.mkForce theme.vscode;
       "editor.cursorSmoothCaretAnimation" = "on";
       "workbench.iconTheme" = "ayu";
       "window.titleBarStyle" = "custom";

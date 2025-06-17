@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, inputs, theme, ... }: {
 
   imports = [ inputs.stylix.nixosModules.stylix ];
 
@@ -7,8 +7,8 @@
     autoEnable = true;
 
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    image = ./wallpaper.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme.stylix}.yaml";
+    image = "${theme.wallpaper}";
 
     cursor = {
       name = "Bibata-Modern-Ice";

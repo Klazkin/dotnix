@@ -1,4 +1,4 @@
-{ inputs, user, hostName, nixModules ? [ ], hmModules ? [ ], ... }:
+{ inputs, user, hostName, nixModules ? [ ], hmModules ? [ ], theme, ... }:
 
 let
   system = "x86_64-linux";
@@ -7,6 +7,7 @@ let
     inherit inputs;
     inherit user;
     inherit hostName;
+    inherit theme;
   };
 
   mkNixModules = modules: (map (n: ./modules/nixos/${n}) modules);
