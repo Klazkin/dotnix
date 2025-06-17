@@ -50,7 +50,7 @@
     nixd # nix language server
     nil # also a nix lang server
     nixfmt # nix formatter
-    spotify_player
+    spotify-player
 
     inputs.zen-browser.packages."${system}".default
 
