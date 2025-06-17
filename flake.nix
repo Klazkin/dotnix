@@ -55,6 +55,7 @@
             /spicetify.nix
             /vscode.nix
             /zed.nix
+            /zen.nix
             /zsh.nix
           ];
         };

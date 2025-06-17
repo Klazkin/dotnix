@@ -1,4 +1,4 @@
-{ pkgs, inputs, user, ... }: {
+{ pkgs, user, ... }: {
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -46,13 +46,9 @@
     discord
     pinta
     godot_4
-    bottles # sandboxed wine environments
     nixd # nix language server
     nil # also a nix lang server
     nixfmt # nix formatter
-
-    inputs.zen-browser.packages."${system}".default
-
   ];
 
   programs.bat = { enable = true; };
