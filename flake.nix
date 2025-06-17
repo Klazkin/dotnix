@@ -31,7 +31,7 @@
         # Framework 13 Laptop
         framework = {
           modules = [ ];
-          hmModules = [ ]; # ./modules/home-manager/vscode.nix
+          hmModules = [ ./modules/home-manager/vscode.nix ];
         };
       };
 
