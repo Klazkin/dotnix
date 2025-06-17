@@ -2,7 +2,7 @@
 
   # runs python script to fix \\ escapes to work as intended
   home.activation.postConfigHook = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    /run/current-system/sw/bin/python3 ./json_fix.py
+    /run/current-system/sw/bin/python3 ~/dotnix/json_fix.py
   '';
 
   # removes old config for oh-my-posh
