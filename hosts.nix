@@ -1,4 +1,4 @@
-{ inputs, user, modules ? [ ], hmModules ? [ ], ... }:
+{ inputs, user, hostName, modules ? [ ], hmModules ? [ ], ... }:
 
 let
   system = "x86_64-linux";
@@ -18,6 +18,7 @@ let
       home-manager.extraSpecialArgs = {
         inherit inputs;
         inherit user;
+        inherit hostName;
       };
     }
 

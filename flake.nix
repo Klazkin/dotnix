@@ -34,6 +34,7 @@
           hmModules = [
             ./modules/home-manager/vscode.nix
             ./modules/home-manager/zed.nix
+            ./modules/home-manager/glance.nix
           ];
         };
       };
