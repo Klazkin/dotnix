@@ -3,6 +3,12 @@
 let
   system = "x86_64-linux";
 
+  specialArgs = {
+    inherit inputs;
+    inherit user;
+    inherit hostName;
+  };
+
   modules = [
 
     inputs.stylix.nixosModules.stylix
@@ -13,14 +19,9 @@ let
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
+      home-manager.extraSpecialArgs = specialArgs;
       home-manager.users.${user}.imports = [ ./home.nix ] ++ hmModules;
-
-      home-manager.extraSpecialArgs = {
-        inherit inputs;
-        inherit user;
-        inherit hostName;
-      };
     }
 
   ];
-in inputs.nixpkgs.lib.nixosSystem { inherit system modules; }
+in inputs.nixpkgs.lib.nixosSystem { inherit system modules specialArgs; }
