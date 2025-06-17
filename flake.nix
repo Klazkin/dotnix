@@ -36,7 +36,7 @@
             vscode = "";
           };
 
-          modules = [ ];
+          nixModules = [ /stylix.nix ];
 
           hmModules = [
             /ghostty.nix

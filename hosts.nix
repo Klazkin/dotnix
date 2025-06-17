@@ -1,4 +1,4 @@
-{ inputs, user, hostName, modules ? [ ], hmModules ? [ ], ... }:
+{ inputs, user, hostName, nixModules ? [ ], hmModules ? [ ], ... }:
 
 let
   system = "x86_64-linux";
@@ -14,9 +14,7 @@ let
   mkHomeManagerModules = modules:
     (map (n: ./modules/home-manager/${n}) modules);
 
-  modules = [
-
-    inputs.stylix.nixosModules.stylix
+  modules = mkNixModules nixModules ++ [
 
     ./hosts/${hostName}/hardware-configuration.nix
 
@@ -30,6 +28,5 @@ let
       home-manager.users.${user}.imports = [ ./common/home.nix ]
         ++ mkHomeManagerModules hmModules;
     }
-
   ];
 in inputs.nixpkgs.lib.nixosSystem { inherit system modules specialArgs; }
