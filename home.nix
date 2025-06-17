@@ -416,15 +416,6 @@ with lib.hm.gvariant;
     };
   };
 
-  home.activation.postConfigHook = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    /run/current-system/sw/bin/python3 /etc/nixos/json_fix.py
-  '';
-
-  home.activation.removeOhMyPoshConfig =
-    lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
-      rm -f ~/.config/oh-my-posh/config.json
-    '';
-
   stylix.targets.gtk.extraCss = ''
     @define-color window_bg_color #${config.lib.stylix.colors.base00}b3;
 

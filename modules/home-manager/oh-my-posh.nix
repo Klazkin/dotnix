@@ -1,4 +1,16 @@
-{ ... }: {
+{ lib, ... }: {
+
+  # runs python script to fix \\ escapes to work as intended
+  home.activation.postConfigHook = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    /run/current-system/sw/bin/python3 ./json_fix.py
+  '';
+
+  # removes old config for oh-my-posh
+  home.activation.removeOhMyPoshConfig =
+    lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
+      rm -f ~/.config/oh-my-posh/config.json
+    '';
+
   programs.oh-my-posh = {
     enable = true;
     enableZshIntegration = true;
