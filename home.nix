@@ -472,16 +472,4 @@ with lib.hm.gvariant;
       rm -f ~/.config/oh-my-posh/config.json
     '';
 
-  stylix.targets.gtk.extraCss = ''
-    @define-color window_bg_color #${config.lib.stylix.colors.base00}b3;
-
-    window {
-       background-color: #${config.lib.stylix.colors.base00}b3;
-    }
-  '';
-
-  # xdg.configFile."oh-my-posh/config.json".source = lib.mkForce("/home/matpac/.config/oh-my-posh/config-fixed.json");
-  # xdg.configFile."oh-my-posh/config.json".force = true;
-
-  # home.sessionVariables.GTK_THEME = config.gtk.theme.name;
 }
