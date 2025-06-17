@@ -31,18 +31,19 @@
         # Framework 13 Laptop
         framework = {
           theme = {
-            stylix = "";
+            stylix = "gruvbox";
             ghostty = "gruvbox";
-            vscode = "";
+            vscode = "gruvbox";
+            wallpaper = "image.jpg";
           };
 
           nixModules = [
             /boot.nix
-            /stylix.nix
-            /steam.nix
-            /manjaro.nix
-            /zsh.nix
             /gnome.nix
+            /manjaro.nix
+            /steam.nix
+            /stylix.nix
+            /zsh.nix
           ];
 
           hmModules = [
@@ -57,8 +58,6 @@
             /zsh.nix
           ];
         };
-
-        # add new systems here
       };
 
       mkSystem = host: system:

@@ -44,7 +44,7 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.matpac = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "Matvei";
     extraGroups = [ "networkmanager" "wheel" ];
