@@ -3,10 +3,6 @@
 with lib.hm.gvariant;
 
 {
-  imports = [
-    # For home-manager
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -53,45 +49,21 @@ with lib.hm.gvariant;
 
   home.packages = with pkgs;
     [
-      montserrat # font
+      montserrat
       fastfetch
-      lazygit # tui git client
-      modrinth-app # minecraft client
+      lazygit
+      modrinth-app
       gnome-tweaks
       dconf-editor
       gnome-settings-daemon
-      # everforest-gtk-theme
-      #	gruvbox-gtk-theme
-      # adwsteamgtk
-      # jetbrains.webstorm
-      # jetbrains.rust-rover
       discord
-      pinta # paint
-      # steam, enabled in configuration.nix
-      # Development deps
+      pinta
       godot_4
-      # rustc
-      # rustup
-      # cargo-outdated
-      # pkg-config
-      # gcc
-      # openssl
-      # openssl.dev
-      # clang
-      # llvmPackages.bintools
-      # lutris
-      # wine
-      # wine64
-      # winetricks
       bottles # sandboxed wine environments
       nixd # nix language server
       nil # also a nix lang server
       nixfmt # nix formatter
-      via # keybaord configurator (for supported models)
-      # gruvbox-dark-icons-gtk
-      # gruvbox-plus-icons
-      # spot
-      # libreoffice
+
       inputs.zen-browser.packages."${system}".default
 
     ] ++ (with pkgs.gnomeExtensions; [
@@ -106,27 +78,8 @@ with lib.hm.gvariant;
 
   programs.bat = { enable = true; };
 
-  programs.spicetify =
-    let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-    in {
-      enable = true;
-
-      enabledExtensions = with spicePkgs.extensions;
-        [
-          # adblock
-          # hidePodcasts
-          shuffle # shuffle+ (special characters are sanitized out of extension names)
-        ];
-
-      enabledCustomApps = with spicePkgs.apps; [ newReleases ncsVisualizer ];
-
-      # theme = spicePkgs.themes.catppuccin; # managed by stylix
-    };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.spotify-player = { enable = true; }; # tui spotify client
 
   dconf = {
     enable = true;
@@ -472,4 +425,11 @@ with lib.hm.gvariant;
       rm -f ~/.config/oh-my-posh/config.json
     '';
 
+  stylix.targets.gtk.extraCss = ''
+    @define-color window_bg_color #${config.lib.stylix.colors.base00}b3;
+
+    window {
+       background-color: #${config.lib.stylix.colors.base00}b3;
+    }
+  '';
 }
