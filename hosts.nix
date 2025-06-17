@@ -18,7 +18,7 @@ let
 
     inputs.stylix.nixosModules.stylix
 
-    ./hosts/${hostName}
+    ./hosts/${hostName}/hardware-configuration.nix
 
     ./common/configuration.nix
 
