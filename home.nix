@@ -50,12 +50,11 @@
     nixd # nix language server
     nil # also a nix lang server
     nixfmt # nix formatter
+    spotify_player
 
     inputs.zen-browser.packages."${system}".default
 
   ];
-
-  programs.spotify_player = { enable = true; };
 
   programs.bat = { enable = true; };
 
