@@ -1,4 +1,4 @@
-{ inputs, user, hostName, modules ? [ ], hmModules ? [ ], ... }:
+{ inputs, user, hostName, wipModules ? [ ], hmModules ? [ ], ... }:
 
 let
   system = "x86_64-linux";
@@ -8,6 +8,9 @@ let
     inherit user;
     inherit hostName;
   };
+
+  mkHomeManagerModules = modules: (map (n: ./modules/${n}/home.nix) modules);
+  # mkNixModules = module: (map: );
 
   modules = [
 
@@ -20,7 +23,8 @@ let
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.extraSpecialArgs = specialArgs;
-      home-manager.users.${user}.imports = [ ./home.nix ] ++ hmModules;
+      home-manager.users.${user}.imports = [ ./home.nix ] ++ hmModules
+        ++ mkHomeManagerModules wipModules;
     }
 
   ];

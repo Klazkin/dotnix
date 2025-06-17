@@ -36,7 +36,8 @@
             vscode = "";
           };
 
-          modules = [ ];
+          wipModules = [ /gnome ];
+
           hmModules = [
             ./modules/home-manager/ghostty.nix
             ./modules/home-manager/glance.nix
