@@ -36,18 +36,18 @@
             vscode = "";
           };
 
-          wipModules = [ /gnome ];
+          modules = [ ];
 
           hmModules = [
-            ./modules/home-manager/ghostty.nix
-            ./modules/home-manager/glance.nix
-            ./modules/home-manager/gnome.nix
-            ./modules/home-manager/minecraft.nix
-            ./modules/home-manager/oh-my-posh.nix
-            ./modules/home-manager/spicetify.nix
-            ./modules/home-manager/vscode.nix
-            ./modules/home-manager/zed.nix
-            ./modules/home-manager/zsh.nix
+            /ghostty.nix
+            /glance.nix
+            /gnome.nix
+            /minecraft.nix
+            /oh-my-posh.nix
+            /spicetify.nix
+            /vscode.nix
+            /zed.nix
+            /zsh.nix
           ];
         };
 

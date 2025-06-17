@@ -1,4 +1,4 @@
-{ inputs, user, hostName, wipModules ? [ ], hmModules ? [ ], ... }:
+{ inputs, user, hostName, modules ? [ ], hmModules ? [ ], ... }:
 
 let
   system = "x86_64-linux";
@@ -9,22 +9,24 @@ let
     inherit hostName;
   };
 
-  mkHomeManagerModules = modules: (map (n: ./modules/${n}/home.nix) modules);
-  # mkNixModules = module: (map: );
+  mkNixModules = modules: (map (n: ./modules/nixos/${n}) modules);
+
+  mkHomeManagerModules = modules:
+    (map (n: ./modules/home-manager/${n}) modules);
 
   modules = [
 
     inputs.stylix.nixosModules.stylix
 
-    ./configuration.nix
+    ./common/configuration.nix
 
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.extraSpecialArgs = specialArgs;
-      home-manager.users.${user}.imports = [ ./home.nix ] ++ hmModules
-        ++ mkHomeManagerModules wipModules;
+      home-manager.users.${user}.imports = [ ./common/home.nix ]
+        ++ mkHomeManagerModules hmModules;
     }
 
   ];
