@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }: {
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -54,6 +54,8 @@
     inputs.zen-browser.packages."${system}".default
 
   ];
+
+  programs.spotify_player = { enable = true; };
 
   programs.bat = { enable = true; };
 

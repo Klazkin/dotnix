@@ -282,24 +282,6 @@ with lib.hm.gvariant;
 
       "org/gnome/desktop/wm/preferences" = { workspace-names = [ "Main" ]; };
 
-      # handled by stylix
-      # "org/gnome/desktop/background" = {
-      #       picture-uri = "file:///home/matpac/.local/share/backgrounds/2025-01-23-21-05-42-wallpaper.jpg";
-      #       picture-uri-dark = "file:///home/matpac/.local/share/backgrounds/2025-01-23-21-05-42-wallpaper.jpg";
-      # };
-
-      "org/gnome/desktop/screensaver" = {
-        picture-uri =
-          "file:///home/matpac/.local/share/backgrounds/2025-01-23-21-05-42-wallpaper.jpg";
-        primary-color = "#3465a4";
-        show-cpu = false;
-        show-download = true;
-        show-memory = false;
-        show-swap = false;
-        show-upload = false;
-        secondary-color = "#000000";
-      };
-
       "org/gnome/settings-daemon/plugins/media-keys" = {
         # next = [ "<Shift><Control>n" ];
         # previous = [ "<Shift><Control>p" ];
@@ -315,13 +297,6 @@ with lib.hm.gvariant;
           name = "ghostty";
           command = "ghostty";
           binding = "<Super>t";
-        };
-
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
-        {
-          name = "wofi";
-          command = "wofi --show run";
-          binding = "<Super>r";
         };
 
       "org/gnome/shell/extensions/system-monitor" = {

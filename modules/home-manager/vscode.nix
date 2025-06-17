@@ -33,11 +33,9 @@
       ];
 
     userSettings = {
-      # This property will be used to generate settings.json:
-      # https://code.visualstudio.com/docs/getstarted/settings#_settingsjson
       "editor.formatOnSave" = true;
       "workbench.colorTheme" =
-        lib.mkForce "Gruvbox Material Dark"; # overwrites stylix theme
+        lib.mkForce "Gruvbox Material Dark"; # overwrite stylix theme
       # "workbench.colorTheme" = lib.mkForce "Ayu Mirage Bordered";
       "editor.cursorSmoothCaretAnimation" = "on";
       "workbench.iconTheme" = "ayu";

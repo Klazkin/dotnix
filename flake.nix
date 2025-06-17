@@ -30,6 +30,12 @@
       systems = {
         # Framework 13 Laptop
         framework = {
+          theme = {
+            stylix = "";
+            ghostty = "gruvbox";
+            vscode = "";
+          };
+
           modules = [ ];
           hmModules = [
             ./modules/home-manager/ghostty.nix
