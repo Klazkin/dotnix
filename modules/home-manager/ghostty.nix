@@ -13,7 +13,7 @@
       window-theme = "dark";
       shell-integration = "zsh";
       gtk-titlebar = false;
-      # always use stylix bg color to match the rest of the system
+      # use stylix bg color to match the rest of the system
       background = config.lib.stylix.colors.base00;
     };
   };

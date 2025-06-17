@@ -123,153 +123,10 @@ with lib.hm.gvariant;
       # theme = spicePkgs.themes.catppuccin; # managed by stylix
     };
 
-  # symbolic links for custom gtk css
-  # xdg.configFile = {
-  #   "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-  #   "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-  #   "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-  # };
-  #
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.thefuck.enable = true; # does it work?
-
-  # Zsh
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    enableCompletion = true;
-    autocd = true;
-    syntaxHighlighting.enable = true;
-
-    initExtra = ''
-      export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/.nix-profile/lib/pkgconfig
-    '';
-
-    shellAliases = {
-      l = "ls -l";
-      ll = "ls -larh";
-      py = "python";
-      rr = "yazi";
-      mm = "micro";
-      rm = "rm -I";
-      summ = "sudo micro";
-      gg = "lazygit";
-      zz = "zeditor";
-      sfy = "spotify_player";
-      update = "(cd ~/dotnix && py update.py)";
-      update-nogit = "sudo nixos-rebuild switch --flake ~/dotnix";
-    };
-  };
 
   programs.spotify-player = { enable = true; }; # tui spotify client
-
-  programs.zsh.oh-my-zsh = {
-    enable = true;
-    plugins = [ "git" "thefuck" ];
-    # theme = "agnoster"; theme is configured via oh-my-posh
-  };
-
-  programs.oh-my-posh = {
-    enable = true;
-    enableZshIntegration = true;
-    # useTheme = "aliens";
-    settings = {
-      version = 3;
-      final_space = true;
-      shell_integration = true;
-      upgrade = false;
-
-      "$schema" =
-        "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
-
-      console_title_template = "{{ .Folder }}";
-
-      transient_prompt = {
-        background = "transparent";
-        foreground = "gray";
-        template = ''{{ now | date "15:04:05" }} \ue285 '';
-      };
-
-      blocks = [
-        {
-          type = "prompt";
-          alignment = "left";
-          trailing_diamond = "\\ue0b0";
-          segments = [
-            {
-              foreground = "black";
-              background = "lightGreen";
-              leading_diamond = "\\ue0b6";
-              trailing_diamond = "\\ue0b0";
-              background_templates =
-                [ ''{{ if eq .Type "impure" }}lightCyan{{ end }}'' ];
-              style = "diamond";
-              type = "nix-shell";
-              template = ''
-                \uF313 {{ if eq .Type "impure" }}devshell{{else}}{{ .UserName }}{{ end }} '';
-            }
-            {
-              type = "path";
-              style = "diamond";
-              # powerline_symbol = "\\ue0b0";
-              leading_diamond = "\\ue0d7";
-              foreground = "black";
-              background = "white";
-              properties = { style = "mixed"; };
-              template = ''{{ if ne .Path "~" }} {{ .Path }} {{ end }}'';
-              # exclude_folders = [ "/home/matpac" ];
-            }
-            {
-              type = "rust";
-              style = "powerline";
-              powerline_symbol = "\\ue0b0";
-              foreground = "default";
-              background = "red";
-              display_mode = "context";
-              template = " \\ue68b {{ .Full }} ";
-            }
-            {
-              type = "git";
-              style = "powerline";
-              powerline_symbol = "\\ue0b0";
-              foreground = "default";
-              background = "blue";
-              background_templates = [
-                "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}"
-                "{{ if and (gt .Ahead 0) (gt .Behind 0) }}red{{ end }}"
-              ];
-              template =
-                " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ";
-              properties = {
-                fetch_status = true;
-                fetch_upstream_icon = true;
-                untracked_modes = {
-                  "/Users/user/Projects/oh-my-posh/" = "no";
-                };
-                source = "cli";
-              };
-            }
-          ];
-        }
-        {
-          type = "rprompt";
-          alignment = "right";
-          segments = [{
-            background = "red";
-            foreground = "default";
-            trailing_diamond = "\\ue0b4";
-            leading_diamond = "\\ue0b6";
-            properties = { always_enabled = false; };
-            style = "diamond";
-            template = "{{ if gt .Code 0 }}\\uf00d {{ reason .Code }}{{ end }}";
-            type = "status";
-          }];
-        }
-      ];
-
-    };
-  };
 
   dconf = {
     enable = true;
@@ -587,46 +444,11 @@ with lib.hm.gvariant;
         show-swap = false;
         show-upload = false;
       };
-
-      # "org/gnome/shell/extensions/user-theme" = {
-      #   name = "gruvbox";
-      # };
-
     };
   };
 
   gtk = {
     enable = true;
-
-    # theme = {
-    # 	name = "Tokyonight-Dark";
-    # 	package = pkgs.tokyonight-gtk-theme;
-    # };
-
-    # iconTheme = {
-    #	name = "Tokyonight-Dark";
-    #	package = pkgs.tokyo-night-gtk;
-    # };
-
-    # iconTheme = {
-    #   name = "GruvboxPlus";
-    #   package = gruvboxPlus;
-    # };
-
-    # theme = {
-    #   name = "gruvbox";
-    #   package = pkgs.gruvbox-gtk-theme;
-    # };
-
-    # theme = {
-    #	name = "adw-gtk3";
-    #	package = pkgs.adw-gtk3;
-    # };
-
-    # cursorTheme = {
-    #   name = "Polarnight-Cursors";
-    #   package = pkgs.polarnight-cursors;
-    # };
 
     gtk3.extraConfig = {
       Settings = ''
