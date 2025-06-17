@@ -59,6 +59,27 @@
             /zsh.nix
           ];
         };
+
+        # Home Desktop PC
+        desktop = {
+          theme = {
+            stylix = "gruvbox-dark-hard";
+            ghostty = "GruvboxDarkHard";
+            vscode = "Gruvbox Material Dark";
+            wallpaper = ./wallpapers/manjaro.jpg;
+          };
+
+          nixModules = [ /boot.nix /gnome.nix /stylix.nix /zsh.nix ];
+
+          hmModules = [
+            /ghostty.nix
+            /gnome.nix
+            /oh-my-posh.nix
+            /vscode.nix
+            /zed.nix
+            /zsh.nix
+          ];
+        };
       };
 
       mkSystem = host: system:
