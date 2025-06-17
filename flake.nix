@@ -35,8 +35,11 @@
             ./modules/home-manager/vscode.nix
             ./modules/home-manager/zed.nix
             ./modules/home-manager/glance.nix
+            ./modules/home-manager/ghostty.nix
           ];
         };
+
+        # add new systems here
       };
 
       mkSystem = host: system:

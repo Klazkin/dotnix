@@ -47,13 +47,13 @@ def main():
         if has_remote_changes():
             sys.exit("Aborting: Remote has changes.")
 
-        run("sudo nixos-rebuild switch --flake ~/dotnix")
-
         if has_local_changes():
             run("git add .")
             commit_msg = f"Auto-update {uuid.uuid4()}"
             run(f"git commit -m \"{commit_msg}\"")
             run("git push origin HEAD")
+
+        run("sudo nixos-rebuild switch --flake ~/dotnix")
 
         clr_print(SUCCESS, GREEN, "Rebuild complete.")
     except subprocess.CalledProcessError as e:

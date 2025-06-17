@@ -1,4 +1,4 @@
-{ user, hostName, ... }: {
+{ ... }: {
   services.glance = {
     enable = true;
 
@@ -14,7 +14,7 @@
             }
           ];
         }];
-        name = user + "/" + hostName;
+        name = "Home";
       }];
       server = { port = 5678; };
     };
