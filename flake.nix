@@ -47,7 +47,7 @@
     #     user = system.user or user;
     #   } // system);
 
-    nixosConfigurations.nixos = let
+    nixosConfigurations.framework = let
       system = "x86_64-linux";
 
       specialArgs = { inherit inputs; };
