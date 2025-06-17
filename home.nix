@@ -33,27 +33,6 @@ with lib.hm.gvariant;
     settings = { location = "center"; };
   };
 
-  services.glance = {
-    enable = true;
-
-    settings = {
-      pages = [{
-        columns = [{
-          size = "full";
-          widgets = [
-            { type = "calendar"; }
-            {
-              location = "Tallinn, Estonia";
-              type = "weather";
-            }
-          ];
-        }];
-        name = "Home";
-      }];
-      server = { port = 5678; };
-    };
-  };
-
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
