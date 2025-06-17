@@ -126,62 +126,6 @@ with lib.hm.gvariant;
       quick-settings-audio-panel
     ]);
 
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions;
-      [
-        teabyii.ayu
-        eamodio.gitlens
-        usernamehw.errorlens
-        rust-lang.rust-analyzer
-        mkhl.direnv
-        esbenp.prettier-vscode
-        ms-azuretools.vscode-docker
-        sainnhe.gruvbox-material
-        jnoortheen.nix-ide
-        aaron-bond.better-comments
-        tamasfe.even-better-toml
-        continue.continue
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "godot-tools";
-          publisher = "geequlim";
-          version = "2.5.1";
-          sha256 = "sha256-kAzRSNZw1zaECblJv7NzXnE2JXSy9hzdT2cGX+uwleY=";
-        }
-        {
-          name = "godot-rust-vscode";
-          publisher = "dsobotta";
-          version = "0.4.1";
-          sha256 = "sha256-fg8dehS6DKe1FuUCkta4P4f7uvkq+lfeCjcnf02m3nE=";
-        }
-        # {
-        #   name = "glassit";
-        #   publisher = "s-nlf-fh";
-        #   version = "0.2.6";
-        #   sha256 = "sha256-LcAomgK91hnJWqAW4I0FAgTOwr8Kwv7ZhvGCgkokKuY=";
-        # }
-        # todo add rust snippets extensions
-      ];
-
-    userSettings = {
-      # This property will be used to generate settings.json:
-      # https://code.visualstudio.com/docs/getstarted/settings#_settingsjson
-      "editor.formatOnSave" = true;
-      "workbench.colorTheme" =
-        lib.mkForce "Gruvbox Material Dark"; # overwrites stylix theme
-      # "workbench.colorTheme" = lib.mkForce "Ayu Mirage Bordered";
-      "editor.cursorSmoothCaretAnimation" = "on";
-      "workbench.iconTheme" = "ayu";
-      "window.titleBarStyle" = "custom";
-      "editor.fontLigatures" = true;
-      "godotTools.editorPath.godot4" =
-        "/etc/profiles/per-user/matpac/bin/godot4";
-      "editor.smoothScrolling" = true;
-      # "glassit.alpha" = 176;
-    };
-  };
-
   programs.bat = { enable = true; };
 
   programs.zed-editor = {

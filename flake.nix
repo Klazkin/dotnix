@@ -1,6 +1,6 @@
 {
   description = "A simple NixOS flake";
-  # based on https://certifikate.io/blog/posts/2024/12/creating-a-multi-system-modular-nixos-configuration-with-flakes/
+  # inspired by https://certifikate.io/blog/posts/2024/12/creating-a-multi-system-modular-nixos-configuration-with-flakes/
 
   inputs = {
     # NixOS official package source, using the nixos-24.11 branch here
@@ -26,6 +26,7 @@
     # commonInherits = { inherit inputs; };
 
     # user = "matpac";
+    #
 
     # systems = {
     # framework = {
@@ -46,6 +47,11 @@
     #     hostName = "${host}";
     #     user = system.user or user;
     #   } // system);
+    #
+
+    # hosts = {
+
+    # };
 
     nixosConfigurations.framework = let
       system = "x86_64-linux";
@@ -63,9 +69,12 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.matpac = import ./home.nix;
+          home-manager.users.matpac.imports =
+            [ ./home.nix ]; # ./modules/home-manager/vscode.nix
+
           home-manager.extraSpecialArgs = specialArgs;
         }
+
       ];
     in inputs.nixpkgs.lib.nixosSystem { inherit system modules specialArgs; };
   };
