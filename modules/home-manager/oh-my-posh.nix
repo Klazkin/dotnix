@@ -47,7 +47,7 @@
               style = "diamond";
               type = "nix-shell";
               template = ''
-                \uF313 {{ if eq .Type "impure" }}devshell{{else}}{{ .UserName }}{{ end }} '';
+                \\uF313 {{ if eq .Type "impure" }}devshell{{else}}{{ .UserName }}{{ end }} '';
             }
             {
               type = "path";
