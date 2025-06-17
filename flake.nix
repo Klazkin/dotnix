@@ -34,6 +34,8 @@
           hmModules = [
             ./modules/home-manager/ghostty.nix
             ./modules/home-manager/glance.nix
+            ./modules/home-manager/gnome.nix
+            ./modules/home-manager/minecraft.nix
             ./modules/home-manager/oh-my-posh.nix
             ./modules/home-manager/spicetify.nix
             ./modules/home-manager/vscode.nix
