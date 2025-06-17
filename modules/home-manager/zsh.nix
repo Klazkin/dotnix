@@ -1,6 +1,4 @@
 { ... }: {
-  programs.thefuck = { enable = true; };
-
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -29,7 +27,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" ];
+      plugins = [ "git" ];
       # theme = "agnoster"; theme is managed by oh-my-posh
     };
   };
