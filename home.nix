@@ -105,6 +105,7 @@ with lib.hm.gvariant;
       # wine
       # wine64
       # winetricks
+      steam
       bottles # sandboxed wine environments
       nixd # nix language server
       nil # also a nix lang server
@@ -185,7 +186,7 @@ with lib.hm.gvariant;
   programs.bat = { enable = true; };
 
   programs.steam = {
-    enable = true;
+    # enable = true;
     remotePlay.openFirewall =
       true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall =
