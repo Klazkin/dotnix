@@ -70,7 +70,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.matpac.imports =
-            [ ./home.nix ]; # ./modules/home-manager/vscode.nix
+            [ ./home.nix ./modules/home-manager/vscode.nix ];
 
           home-manager.extraSpecialArgs = specialArgs;
         }
