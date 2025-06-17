@@ -18,6 +18,8 @@ let
 
     inputs.stylix.nixosModules.stylix
 
+    ./hosts/${hostName}
+
     ./common/configuration.nix
 
     inputs.home-manager.nixosModules.home-manager
