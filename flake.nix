@@ -38,6 +38,7 @@
             ./modules/home-manager/ghostty.nix
             ./modules/home-manager/zsh.nix
             ./modules/home-manager/oh-my-posh.nix
+            ./modules/home-manager/spicetify.nix
           ];
         };
 
