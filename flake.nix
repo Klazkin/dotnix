@@ -36,7 +36,14 @@
             vscode = "";
           };
 
-          nixModules = [ /stylix.nix ];
+          nixModules = [
+            /boot.nix
+            /stylix.nix
+            /steam.nix
+            /manjaro.nix
+            /zsh.nix
+            /gnome.nix
+          ];
 
           hmModules = [
             /ghostty.nix
