@@ -2,7 +2,7 @@
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions;
+    profiles.default.extensions = with pkgs.vscode-extensions;
       [
         teabyii.ayu
         eamodio.gitlens
@@ -32,7 +32,7 @@
         # todo add rust snippets extensions
       ];
 
-    userSettings = {
+    profiles.default.userSettings = {
       "editor.formatOnSave" = true;
       "workbench.colorTheme" = lib.mkForce theme.vscode;
       "editor.cursorSmoothCaretAnimation" = "on";

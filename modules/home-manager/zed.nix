@@ -1,4 +1,4 @@
-{ theme, ... }: {
+{ theme, lib, ... }: {
   programs.zed-editor = {
     enable = true;
     extensions = [ "nix" "toml" "elixir" "make" ];
@@ -38,9 +38,9 @@
         metrics = false;
       };
 
-      theme = {
+      theme = lib.mkForce {
         mode = "system";
-        light = "One Light";
+        light = theme.zed;
         dark = theme.zed;
       };
 

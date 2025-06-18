@@ -13,6 +13,14 @@
     cursor = {
       name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
+      size = 24;
+    };
+
+    opacity = {
+      applications = 0.7;
+      desktop = 0.7;
+      popups = 0.7;
+      terminal = 0.7;
     };
 
     fonts = {
@@ -27,11 +35,18 @@
       };
 
       monospace = {
-        package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font";
       };
 
       emoji = config.stylix.fonts.monospace;
+
+      sizes = {
+        applications = 10;
+        desktop = 10;
+        popups = 8;
+        terminal = 10;
+      };
     };
   };
 }

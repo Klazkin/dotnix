@@ -4,16 +4,16 @@
 
   inputs = {
     # NixOS official package source, using the nixos-24.11 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix/release-25.05";
 
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

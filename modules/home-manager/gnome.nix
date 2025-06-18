@@ -295,7 +295,6 @@ with lib.hm.gvariant;
 
       "org/gnome/desktop/interface" = {
         # color-scheme = "prefer-dark"; # handeled by stylx
-        cursor-size = 32;
         show-battery-percentage = true;
       };
 

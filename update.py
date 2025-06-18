@@ -2,6 +2,12 @@ import subprocess
 import sys
 import uuid
 
+# todo:
+# util for rebuild font cache
+# util to collect garbage
+# util to update flake and remove old flake lock
+# util to open nix shell
+
 ARROW = "\ue285"
 NIX = "\uf313 "
 ERROR = "\uf00d"

@@ -6,7 +6,7 @@
     autocd = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
+    initContent = ''
       export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/.nix-profile/lib/pkgconfig
     '';
 
