@@ -88,10 +88,10 @@
             /zsh.nix
             /grub.nix
             /coolercontrol.nix
+            /nvidia.nix
           ];
 
           hmModules = [
-
             /ghostty.nix
             /spicetify.nix
             /zen.nix
