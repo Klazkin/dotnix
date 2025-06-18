@@ -4,9 +4,10 @@ import uuid
 
 # todo:
 # util for rebuild font cache
-# util to collect garbage
+# util to collect garbage (sudo and non sudo)
 # util to update flake and remove old flake lock
 # util to open nix shell
+# nix store gc
 
 ARROW = "\ue285"
 NIX = "\uf313 "
