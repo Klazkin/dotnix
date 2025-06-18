@@ -21,6 +21,11 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, ... }@inputs:
@@ -36,6 +41,8 @@
             vscode = "Gruvbox Material Dark";
             zed = "Gruvbox Dark Hard";
             wallpaper = ./wallpapers/manjaro.jpg;
+            fontSize = 12;
+            panelSize = 40;
           };
 
           nixModules = [
@@ -70,12 +77,21 @@
             vscode = "Ayu Mirage Bordered";
             zed = "Ayu Mirage";
             wallpaper = ./wallpapers/pexels-photo-772803-modifed.jpeg;
+            fontSize = 10;
+            panelSize = 32;
           };
 
-          nixModules = [ /boot.nix /gnome.nix /stylix.nix /zsh.nix /grub.nix ];
+          nixModules = [
+            /boot.nix
+            /gnome.nix
+            /stylix.nix
+            /zsh.nix
+            /grub.nix
+            /coolercontrol.nix
+          ];
 
           hmModules = [
-            /coolercontrol.nix
+
             /ghostty.nix
             /spicetify.nix
             /zen.nix

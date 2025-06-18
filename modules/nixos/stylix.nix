@@ -42,10 +42,10 @@
       emoji = config.stylix.fonts.monospace;
 
       sizes = {
-        applications = 10;
-        desktop = 10;
-        popups = 8;
-        terminal = 10;
+        applications = theme.fontSize;
+        desktop = theme.fontSize;
+        popups = theme.fontSize - 2;
+        terminal = theme.fontSize;
       };
     };
   };

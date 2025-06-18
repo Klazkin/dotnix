@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, theme, ... }:
 
 with lib.hm.gvariant;
 
@@ -120,9 +120,15 @@ with lib.hm.gvariant;
           "org.gnome.baobab"
           "org.gnome.Nautilus"
           ".guake-wrapped"
-          "Code"
           "zen-beta"
-          "wofi"
+          "org.gnome.FileRoller"
+          "org.gnome.SystemMonitor"
+          "org.gnome.Extensions"
+          "org.gnome.TextEditor"
+          "org.gnome.clocks"
+          "org.gnome.Decibels"
+          "org.gnome.Loupe"
+          "org.gnome.Calculator"
         ];
       };
 
@@ -241,25 +247,32 @@ with lib.hm.gvariant;
         leftbox-padding = -1;
         leftbox-size = 0;
         overview-click-to-exit = false;
+
         panel-anchors = ''
           {"0":"START", "1":"START"}
         '';
+
         panel-element-positions = ''
           {
           "0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],
           "1":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]
           }
         '';
+
         panel-lengths = ''
           {"0":100, "1":100}
         '';
+
         panel-positions = builtins.toJSON {
           "0" = "BOTTOM";
           "1" = "BOTTOM";
         };
-        panel-sizes = ''
-          {"0":40, "1":40}
-        '';
+
+        panel-sizes = builtins.toJSON {
+          "0" = theme.panelSize;
+          "1" = theme.panelSize;
+        };
+
         primary-monitor = 0;
         progress-show-count = true;
         scroll-panel-delay = 200;
