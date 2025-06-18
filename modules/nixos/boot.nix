@@ -1,18 +1,6 @@
-{ pkgs, ... }: {
+{ ... }: {
   # Bootloader
   boot = {
-    plymouth = {
-      enable = false;
-      theme = "bgrt"; # handeled by stylix
-      themePackages = with pkgs;
-        [
-          # By default we would install all themes
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "loader_2" ];
-          })
-        ];
-    };
-
     # Enable "Silent Boot"
     consoleLogLevel = 0;
     initrd.verbose = false;
@@ -29,7 +17,6 @@
     # It's still possible to open the bootloader list by pressing any key
     # It will just not appear on screen unless a key is pressed
     loader.timeout = 3;
-    loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
   };
 }

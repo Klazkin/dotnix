@@ -62,8 +62,8 @@
               type = "rust";
               style = "powerline";
               powerline_symbol = "\\ue0b0";
-              foreground = "default";
-              background = "red";
+              foreground = "black";
+              background = "lightRed";
               display_mode = "context";
               template = " \\ue68b {{ .Full }} ";
             }
@@ -71,11 +71,11 @@
               type = "git";
               style = "powerline";
               powerline_symbol = "\\ue0b0";
-              foreground = "default";
-              background = "blue";
+              foreground = "black";
+              background = "lightBlue";
               background_templates = [
-                "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}"
-                "{{ if and (gt .Ahead 0) (gt .Behind 0) }}red{{ end }}"
+                "{{ if or (.Working.Changed) (.Staging.Changed) }}lightYellow{{ end }}"
+                "{{ if and (gt .Ahead 0) (gt .Behind 0) }}lightRed{{ end }}"
               ];
               template =
                 " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ";

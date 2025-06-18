@@ -34,6 +34,7 @@
             stylix = "gruvbox-dark-hard";
             ghostty = "GruvboxDarkHard";
             vscode = "Gruvbox Material Dark";
+            zed = "Gruvbox Dark Hard";
             wallpaper = ./wallpapers/manjaro.jpg;
           };
 
@@ -44,6 +45,7 @@
             /steam.nix
             /stylix.nix
             /zsh.nix
+            /systemd-boot.nix
           ];
 
           hmModules = [
@@ -63,16 +65,20 @@
         # Home Desktop PC
         desktop = {
           theme = {
-            stylix = "gruvbox-dark-hard";
-            ghostty = "GruvboxDarkHard";
-            vscode = "Gruvbox Material Dark";
-            wallpaper = ./wallpapers/manjaro.jpg;
+            stylix = "ayu-mirage";
+            ghostty = "Ayu Mirage";
+            vscode = "Ayu Mirage Bordered";
+            zed = "Ayu Mirage";
+            wallpaper = ./wallpapers/pexels-photo-772803-modifed.jpeg;
           };
 
-          nixModules = [ /boot.nix /gnome.nix /stylix.nix /zsh.nix ];
+          nixModules = [ /boot.nix /gnome.nix /stylix.nix /zsh.nix /grub.nix ];
 
           hmModules = [
+            /coolercontrol.nix
             /ghostty.nix
+            /spicetify.nix
+            /zen.nix
             /gnome.nix
             /oh-my-posh.nix
             /vscode.nix

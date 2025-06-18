@@ -1,4 +1,4 @@
-{ ... }: {
+{ theme, ... }: {
   programs.zed-editor = {
     enable = true;
     extensions = [ "nix" "toml" "elixir" "make" ];
@@ -41,7 +41,7 @@
       theme = {
         mode = "system";
         light = "One Light";
-        dark = "Gruvbox Dark Hard";
+        dark = theme.zed;
       };
 
       base_keymap = "JetBrains";

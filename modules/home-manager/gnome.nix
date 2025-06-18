@@ -35,6 +35,14 @@ with lib.hm.gvariant;
         favorite-apps = [ ];
       };
 
+      "org/gnome/desktop/input-sources" = {
+        sources = [
+          (mkTuple [ "xkb" "us" ])
+          (mkTuple [ "xkb" "ee" ])
+          (mkTuple [ "xkb" "ru" ])
+        ];
+      };
+
       "org/gnome/shell/extensions/weatherornot" = { position = "right"; };
 
       "org/gnome/shell/extensions/quick-settings-audio-panel" = {
@@ -117,8 +125,10 @@ with lib.hm.gvariant;
           "wofi"
         ];
       };
+
       "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab".pipeline =
         "pipeline_default";
+
       "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
         blur = false;
         brightness = 1.0;
@@ -129,16 +139,21 @@ with lib.hm.gvariant;
         style-dash-to-dock = 2;
         unblur-in-overview = true;
       };
+
       "org/gnome/shell/extensions/blur-my-shell/dash-to-panel".blur-original-panel =
         true;
+
       "org/gnome/shell/extensions/blur-my-shell/hidetopbar".compatibility =
         true;
+
       "org/gnome/shell/extensions/blur-my-shell/lockscreen".pipeline =
         "pipeline_default";
+
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         blur = true;
         pipeline = "pipeline_default";
       };
+
       "org/gnome/shell/extensions/blur-my-shell/panel" = {
         blur = true;
         brightness = 1.0;
@@ -227,19 +242,23 @@ with lib.hm.gvariant;
         leftbox-size = 0;
         overview-click-to-exit = false;
         panel-anchors = ''
-          {"0":"START"}
+          {"0":"START", "1":"START"}
         '';
         panel-element-positions = ''
-          {"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}
+          {
+          "0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],
+          "1":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]
+          }
         '';
         panel-lengths = ''
-          {"0":100}
+          {"0":100, "1":100}
         '';
-        panel-positions = ''
-          {"0":"BOTTOM"}
-        '';
+        panel-positions = builtins.toJSON {
+          "0" = "BOTTOM";
+          "1" = "BOTTOM";
+        };
         panel-sizes = ''
-          {"0":40}
+          {"0":40, "1":40}
         '';
         primary-monitor = 0;
         progress-show-count = true;
