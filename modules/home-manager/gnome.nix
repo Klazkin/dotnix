@@ -129,6 +129,7 @@ with lib.hm.gvariant;
           "org.gnome.Decibels"
           "org.gnome.Loupe"
           "org.gnome.Calculator"
+          "com.github.PintaProject.Pinta"
         ];
       };
 
