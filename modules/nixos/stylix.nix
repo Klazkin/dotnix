@@ -13,7 +13,7 @@
     cursor = {
       name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
-      size = 24;
+      size = theme.cursorSize;
     };
 
     opacity = {

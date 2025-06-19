@@ -43,6 +43,7 @@
             wallpaper = ./wallpapers/manjaro.jpg;
             fontSize = 12;
             panelSize = 40;
+            cursorSize = 32;
           };
 
           nixModules = [
@@ -79,6 +80,7 @@
             wallpaper = ./wallpapers/pexels-photo-772803-modifed.jpeg;
             fontSize = 10;
             panelSize = 32;
+            cursorSize = 24;
           };
 
           nixModules = [
