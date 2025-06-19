@@ -13,7 +13,24 @@ with lib.hm.gvariant;
       weather-or-not
       media-controls
       quick-settings-audio-panel
+      gsconnect
     ]);
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      80
+      443
+      { # KDE Connect range
+        from = 1716;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = [{ # KDE Connect range
+      from = 1716;
+      to = 1764;
+    }];
+  };
 
   dconf = {
     enable = true;
@@ -22,14 +39,15 @@ with lib.hm.gvariant;
         disable-user-extensions = false;
         disabled-extensions = [ ];
         enabled-extensions = [
-          "weatherornot@somepaulo.github.io" # X
-          "appindicatorsupport@rgcjonas.gmail.com" # X
+          "weatherornot@somepaulo.github.io"
+          "appindicatorsupport@rgcjonas.gmail.com"
           "blur-my-shell@aunetx"
-          "accent-directories@taiwbi.com" # X
-          "system-monitor@gnome-shell-extensions.gcampax.github.com" # X
+          "accent-directories@taiwbi.com"
+          "system-monitor@gnome-shell-extensions.gcampax.github.com"
           "dash-to-panel@jderose9.github.com"
-          "mediacontrols@cliffniff.github.com" # X
-          "quick-settings-audio-panel@rayzeq.github.io" # X
+          "mediacontrols@cliffniff.github.com"
+          "quick-settings-audio-panel@rayzeq.github.io"
+          "gsconnect@andyholmes.github.io"
         ];
 
         favorite-apps = [ ];
