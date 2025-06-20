@@ -16,22 +16,6 @@ with lib.hm.gvariant;
       gsconnect
     ]);
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      80
-      443
-      { # KDE Connect range
-        from = 1716;
-        to = 1764;
-      }
-    ];
-    allowedUDPPortRanges = [{ # KDE Connect range
-      from = 1716;
-      to = 1764;
-    }];
-  };
-
   dconf = {
     enable = true;
     settings = {

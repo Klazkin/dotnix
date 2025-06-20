@@ -17,6 +17,22 @@
     networkmanager.enable = true;
   };
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      80 # http
+      443 # https
+    ];
+    allowedTCPPortRanges = [{ # KDE Connect range
+      from = 1716;
+      to = 1764;
+    }];
+    allowedUDPPortRanges = [{ # KDE Connect range
+      from = 1716;
+      to = 1764;
+    }];
+  };
+
   i18n = {
     defaultLocale = "en_GB.UTF-8";
 
@@ -61,6 +77,7 @@
     yazi
     bottom
     zellij
+    cava
   ];
 
   programs.htop.enable = true;
