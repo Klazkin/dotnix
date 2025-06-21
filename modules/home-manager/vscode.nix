@@ -16,6 +16,7 @@
         aaron-bond.better-comments
         tamasfe.even-better-toml
         continue.continue
+        tauri-apps.tauri-vscode
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "godot-tools";
