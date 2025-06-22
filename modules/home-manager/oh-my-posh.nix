@@ -47,30 +47,26 @@
               style = "diamond";
               type = "nix-shell";
               template = ''
-                \uF313 {{ if eq .Type "impure" }}devshell{{else}}{{ .UserName }}{{ end }} '';
+                \ue843 {{ if eq .Type "impure" }}devshell{{else}}{{.UserName}}{{ end }} '';
             }
             {
               type = "path";
               style = "diamond";
-              leading_diamond = "\\ue0d7";
+              leading_diamond = "\\ue0d4";
+              trailing_diamond = "\\ue0b0";
               foreground = "black";
               background = "white";
-              properties = { style = "mixed"; };
-              template = ''{{ if ne .Path "~" }} {{ .Path }} {{ end }}'';
-            }
-            {
-              type = "rust";
-              style = "powerline";
-              powerline_symbol = "\\ue0b0";
-              foreground = "black";
-              background = "lightRed";
-              display_mode = "context";
-              template = " \\ue68b {{ .Full }} ";
+              properties = {
+                style = "mixed";
+                home_icon = "\\uf015";
+              };
+              template = ''{{ if ne .Path "\\uf015" }}{{ .Path }}{{ end }} '';
             }
             {
               type = "git";
-              style = "powerline";
-              powerline_symbol = "\\ue0b0";
+              style = "diamond";
+              leading_diamond = "\\ue0d4";
+              trailing_diamond = "\\ue0b0";
               foreground = "black";
               background = "lightBlue";
               background_templates = [
@@ -93,16 +89,27 @@
         {
           type = "rprompt";
           alignment = "right";
-          segments = [{
-            background = "red";
-            foreground = "default";
-            trailing_diamond = "\\ue0b4";
-            leading_diamond = "\\ue0b6";
-            properties = { always_enabled = false; };
-            style = "diamond";
-            template = "{{ if gt .Code 0 }}\\uf00d {{ reason .Code }}{{ end }}";
-            type = "status";
-          }];
+          segments = [
+            {
+              type = "rust";
+              style = "plain";
+              foreground = "lightRed";
+              background = "transparent";
+              display_mode = "context";
+              template = "\\ue68b {{ .Full }} ";
+            }
+            {
+              background = "red";
+              foreground = "black";
+              trailing_diamond = "\\ue0b4";
+              leading_diamond = "\\ue0b6";
+              properties = { always_enabled = false; };
+              style = "diamond";
+              template =
+                "{{ if gt .Code 0 }}\\uf00d {{ reason .Code }}{{ end }}";
+              type = "status";
+            }
+          ];
         }
       ];
     };
