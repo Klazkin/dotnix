@@ -58,9 +58,9 @@
               background = "white";
               properties = {
                 style = "mixed";
-                home_icon = "\\uf015";
+                home_icon = "\\uf015 ";
               };
-              template = ''{{ if ne .Path "\\uf015" }}{{ .Path }}{{ end }} '';
+              template = ''{{ if ne .Path "\\uf015 " }}{{ .Path }}{{ end }} '';
             }
             {
               type = "git";
