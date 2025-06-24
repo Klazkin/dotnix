@@ -75,9 +75,9 @@
     fastfetch
     lazygit
 
-    discord
+    # discord
     pinta
-    godot_4
+    godot_4 # todo mave to flake.nix for projects
     nixd # nix language server
     nil # also a nix lang server
     nixfmt-classic # nix formatter

@@ -26,6 +26,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixcord = { url = "github:kaylorben/nixcord"; };
   };
 
   outputs = { self, ... }@inputs:
@@ -57,6 +59,7 @@
           ];
 
           hmModules = [
+            /discord.nix
             /ghostty.nix
             /glance.nix
             /gnome.nix
