@@ -97,6 +97,7 @@
           ];
 
           hmModules = [
+            /discord.nix
             /ghostty.nix
             /spicetify.nix
             /zen.nix
