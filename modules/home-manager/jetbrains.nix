@@ -3,5 +3,6 @@
     rust-rover
     pycharm-community-bin
     webstorm
+    intellij-idea-community-bin
   ];
 }
