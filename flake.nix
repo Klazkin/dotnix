@@ -106,6 +106,7 @@
             /vscode.nix
             /zed.nix
             /zsh.nix
+            /jetbrains.nix
           ];
         };
       };
