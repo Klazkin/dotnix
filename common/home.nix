@@ -79,6 +79,8 @@
     nixd # nix language server
     nil # also a nix lang server
     nixfmt-classic # nix formatter
+
+    evince # pdf viewer
   ];
 
   programs.bat = { enable = true; };
