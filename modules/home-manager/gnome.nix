@@ -92,13 +92,15 @@ with lib.hm.gvariant;
       "org/gnome/shell/extensions/blur-my-shell" = {
         hacks-level = 1;
         pipelines =
-          "{'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_04658137160128'>, 'params': <{'unscaled_radius': <20>, 'brightness': <0.69999999999999996>}>}>]>}, 'pipeline_98317024624478': {'name': <'FullBright'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_04908479552873'>, 'params': <{'unscaled_radius': <20>, 'brightness': <1>}>}>]>}}";
+          "{'pipeline_default': {'name': <'PanelBlur'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <1>, 'unscaled_radius': <20>}>}>]>}, 'pipeline_default_rounded': {'name': <'Overview'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_31109415505246'>, 'params': <{'unscaled_radius': <20>, 'brightness': <0.29999999999999999>}>}>]>}}";
         settings-version = 2;
       };
 
       "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
-        brightness = 0.6;
-        sigma = 30;
+        blur = true;
+        brightness = 0.7;
+        sigma = 20;
+        style-dialogs = 1;
       };
 
       "org/gnome/shell/extensions/blur-my-shell/applications" = {
@@ -157,18 +159,19 @@ with lib.hm.gvariant;
         true;
 
       "org/gnome/shell/extensions/blur-my-shell/lockscreen".pipeline =
-        "pipeline_default";
+        "pipeline_default_rounded";
 
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         blur = true;
-        pipeline = "pipeline_default";
+        pipeline = "pipeline_default_rounded";
+        stlye-components = 2;
       };
 
       "org/gnome/shell/extensions/blur-my-shell/panel" = {
         blur = true;
         brightness = 1.0;
         force-light-text = false;
-        override-background = true;
+        override-background = false;
         override-background-dynamically = false;
         pipeline = "pipeline_default";
         sigma = 20;
@@ -181,8 +184,8 @@ with lib.hm.gvariant;
         "pipeline_default";
 
       "org/gnome/shell/extensions/blur-my-shell/window-list" = {
-        brightness = 0.6;
-        sigma = 30;
+        brightness = 0.7;
+        sigma = 20;
       };
 
       "org/gnome/shell/extensions/dash-to-panel" = {
@@ -218,8 +221,8 @@ with lib.hm.gvariant;
           RIPPLE = 1.25;
           PLANK = 2.0;
         };
-        appicon-margin = 6;
-        appicon-padding = 5;
+        appicon-margin = 4;
+        appicon-padding = 4;
         appicon-style = "NORMAL";
         available-monitors = [ 0 ];
         desktop-line-use-custom-color = false;
@@ -232,6 +235,7 @@ with lib.hm.gvariant;
         dot-style-unfocused = "METRO";
         focus-highlight-dominant = true;
         focus-highlight-opacity = 30;
+        global-border-radius = 0;
         group-apps = true;
         group-apps-label-font-color = "#d5c4a1";
         group-apps-label-font-color-minimized = "#d5c4a1";
@@ -277,6 +281,11 @@ with lib.hm.gvariant;
           "1" = theme.panelSize;
         };
 
+        panel-side-margins = 0;
+        panel-side-padding = 8;
+        panel-top-bottom-margins = 0;
+        panel-top-bottom-padding = 0;
+
         primary-monitor = 0;
         progress-show-count = true;
         scroll-panel-delay = 200;
@@ -292,23 +301,18 @@ with lib.hm.gvariant;
         stockgs-keep-dash = false;
         stockgs-keep-top-panel = false;
         stockgs-panelbtn-click-only = false;
-        trans-dynamic-anim-target = 1.0;
-        trans-dynamic-anim-time = 0;
-        trans-gradient-bottom-opacity = 0.35000000000000003;
-        trans-gradient-top-color = "#cdab8f";
-        trans-gradient-top-opacity = 0.0;
-        trans-use-custom-bg = true;
-        trans-panel-opacity = 0.7;
+        trans-dynamic-anim-target = 0.7;
+        trans-dynamic-anim-time = 250;
+        trans-panel-opacity = 0.0;
         trans-bg-color = "#" + config.lib.stylix.colors.base00;
+        trans-use-custom-bg = true;
         trans-use-custom-gradient = false;
         trans-use-custom-opacity = true;
-        trans-use-dynamic-opacity = false;
+        trans-use-dynamic-opacity = true;
         tray-padding = 4;
         tray-size = 0;
         window-preview-title-position = "TOP";
       };
-
-      # lib.mkForce "${config.stylix.base16Scheme.base0E}";
 
       "org/gnome/desktop/interface" = {
         # color-scheme = "prefer-dark"; # handeled by stylx
