@@ -38,11 +38,12 @@
         # Framework 13 Laptop
         framework = {
           theme = {
-            stylix = "gruvbox-dark-hard";
-            ghostty = "GruvboxDarkHard";
-            vscode = "Gruvbox Material Dark";
-            zed = "Gruvbox Dark Hard";
-            wallpaper = ./wallpapers/manjaro.jpg;
+            stylix = "ayu-dark";
+            ghostty = "Ayu Mirage";
+            vscode = "Ayu Mirage Bordered";
+            zed = "Ayu Mirage";
+            wallpaper =
+              ./wallpapers/pexels-evgeny-tchebotarev-1058775-2187456.jpg;
             fontSize = 12;
             panelSize = 48;
             cursorSize = 32;
@@ -70,6 +71,7 @@
             /zed.nix
             /zen.nix
             /zsh.nix
+            /itch.nix
           ];
         };
 

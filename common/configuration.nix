@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 { pkgs, user, hostName, ... }: {
 
   nix = {
@@ -34,20 +31,20 @@
   };
 
   i18n = {
-    defaultLocale = "en_GB.UTF-8";
+    defaultLocale = "en_US.UTF-8";
 
     extraLocaleSettings = {
-      LC_ADDRESS = "et_EE.UTF-8";
-      LC_IDENTIFICATION = "et_EE.UTF-8";
-      LC_MEASUREMENT = "et_EE.UTF-8";
-      LC_MONETARY = "et_EE.UTF-8";
-      LC_NAME = "et_EE.UTF-8";
-      LC_NUMERIC = "et_EE.UTF-8";
-      LC_PAPER = "et_EE.UTF-8";
-      LC_TELEPHONE = "et_EE.UTF-8";
-      LC_TIME = "et_EE.UTF-8";
+      LC_TIME = "en_DK.UTF-8"; # English, European date ordering
+      LC_NUMERIC =
+        "en_US.UTF-8"; # Decimal point = dot, grouping = none/commas (but no comma decimal)
+      LC_MONETARY = "en_US.UTF-8"; # Currency with dot decimals
+      LC_MEASUREMENT = "et_EE.UTF-8"; # Metric units
+      LC_PAPER = "et_EE.UTF-8"; # A4 paper size
+      LC_ADDRESS = "et_EE.UTF-8"; # Estonian-style addresses if needed
+      LC_NAME = "et_EE.UTF-8"; # Estonian name order conventions
+      LC_TELEPHONE = "et_EE.UTF-8"; # Estonian phone formatting
+      LC_IDENTIFICATION = "en_US.UTF-8"; # Keep metadata in English
     };
-
   };
 
   time.timeZone = "Europe/Tallinn";

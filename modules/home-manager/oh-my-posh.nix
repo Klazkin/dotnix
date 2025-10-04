@@ -56,11 +56,8 @@
               trailing_diamond = "\\ue0b0";
               foreground = "black";
               background = "white";
-              properties = {
-                style = "mixed";
-                home_icon = "\\uf015 ";
-              };
-              template = ''{{ if ne .Path "\\uf015 " }}{{ .Path }}{{ end }} '';
+              properties = { style = "mixed"; };
+              template = ''{{ if ne .Path "~" }}{{ .Path }}{{ end }} '';
             }
             {
               type = "git";
