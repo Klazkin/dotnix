@@ -9,6 +9,8 @@
     };
   };
 
+  programs.nix-ld.enable = true;
+
   networking = {
     hostName = hostName;
     networkmanager.enable = true;
@@ -19,7 +21,10 @@
     allowedTCPPorts = [
       80 # http
       443 # https
+      25565 # minecraft
+      8001 # 3DS local streaming
     ];
+    allowedUDPPorts = [ 25565 ];
     allowedTCPPortRanges = [{ # KDE Connect range
       from = 1716;
       to = 1764;
