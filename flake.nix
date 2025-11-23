@@ -97,6 +97,7 @@
             /grub.nix
             /coolercontrol.nix
             /nvidia.nix
+            /steam.nix
           ];
 
           hmModules = [
