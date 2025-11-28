@@ -72,6 +72,7 @@
             /zen.nix
             /zsh.nix
             /itch.nix
+            /mpv.nix
             /godot.nix
           ];
         };
