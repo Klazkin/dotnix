@@ -113,6 +113,7 @@
             /zed.nix
             /zsh.nix
             /jetbrains.nix
+            /mpv.nix
           ];
         };
       };
