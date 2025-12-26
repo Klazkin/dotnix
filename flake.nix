@@ -42,8 +42,7 @@
             ghostty = "Ayu Mirage";
             vscode = "Ayu Mirage Bordered";
             zed = "Ayu Mirage";
-            wallpaper =
-              ./wallpapers/pexels-evgeny-tchebotarev-1058775-2187456.jpg;
+            wallpaper = ./wallpapers/20251205_093604.jpg;
             fontSize = 12;
             panelSize = 48;
             cursorSize = 32;
@@ -57,6 +56,7 @@
             /stylix.nix
             /zsh.nix
             /systemd-boot.nix
+            /mullvad.nix
           ];
 
           hmModules = [
@@ -74,6 +74,7 @@
             /itch.nix
             /mpv.nix
             /godot.nix
+            /qbittorrent.nix
           ];
         };
 

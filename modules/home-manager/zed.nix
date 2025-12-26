@@ -27,6 +27,16 @@
       buffer_font_family = "JetBrainsMono Nerd Font";
       ui_font_family = "Noto Sans";
       buffer_font_weight = 200;
+      buffer_font_size = lib.mkForce 20;
+      ui_font_size = lib.mkForce 20;
+
+      inlay_hints = {
+        enabled = true;
+        show_type_hints = true;
+        show_parameter_hints = true;
+        show_other_hints = true;
+        edit_debounce_ms = 300;
+      };
 
       terminal = {
         line_height = "standard";
