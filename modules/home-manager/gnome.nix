@@ -230,7 +230,7 @@ with lib.hm.gvariant;
         dot-color-override = false;
         dot-color-unfocused-different = false;
         dot-position = "BOTTOM";
-        dot-size = 1;
+        dot-size = 2;
         dot-style-focused = "SEGMENTED";
         dot-style-unfocused = "SEGMENTED";
         extension-version = 72;
