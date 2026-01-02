@@ -202,7 +202,7 @@ with lib.hm.gvariant;
         };
         animate-appicon-hover-animation-extent = builtins.toJSON {
           RIPPLE = 4;
-          PLANK = 1;
+          PLANK = 3;
           SIMPLE = 1;
         };
         animate-appicon-hover-animation-rotation = builtins.toJSON {
@@ -211,13 +211,13 @@ with lib.hm.gvariant;
           PLANK = 0;
         };
         animate-appicon-hover-animation-travel = builtins.toJSON {
-          SIMPLE = 0.2;
-          RIPPLE = 0.4;
+          SIMPLE = 0.15;
+          RIPPLE = 0.1;
           PLANK = 0.0;
         };
         animate-appicon-hover-animation-type = "SIMPLE";
         animate-appicon-hover-animation-zoom = builtins.toJSON {
-          SIMPLE = 1.3;
+          SIMPLE = 1.15;
           RIPPLE = 1.25;
           PLANK = 2.0;
         };
@@ -229,27 +229,50 @@ with lib.hm.gvariant;
         dot-color-dominant = true;
         dot-color-override = false;
         dot-color-unfocused-different = false;
-        dot-position = "TOP";
-        dot-size = 4;
-        dot-style-focused = "METRO";
-        dot-style-unfocused = "METRO";
+        dot-position = "BOTTOM";
+        dot-size = 1;
+        dot-style-focused = "SEGMENTED";
+        dot-style-unfocused = "SEGMENTED";
+        extension-version = 72;
         focus-highlight-dominant = true;
         focus-highlight-opacity = 30;
         global-border-radius = 0;
         group-apps = true;
-        group-apps-label-font-color = "#d5c4a1";
-        group-apps-label-font-color-minimized = "#d5c4a1";
+        group-apps-label-font-color = "#dddddd";
+        group-apps-label-font-color-minimized = "#dddddd";
         group-apps-label-font-size = 14;
         group-apps-label-font-weight = "inherit";
-        group-apps-label-max-width = 130;
+        group-apps-label-max-width = 160;
         group-apps-underline-unfocused = true;
+        group-apps-use-fixed-width = true;
         group-apps-use-launchers = false;
         hide-overview-on-startup = true;
+        highlight-appicon-hover-background-color = "red";
+        highlight-appicon-hover-border-radius = 4;
+        highlight-appicon-pressed-background-color = "green";
         hot-keys = false;
         hotkeys-overlay-combo = "TEMPORARILY";
         intellihide = false;
-        intellihide-behaviour = "MAXIMIZED_WINDOWS";
-        intellihide-hide-from-windows = true;
+        intellihide-animation-time = 200;
+        intellihide-behaviour = "ALL_WINDOWS";
+        intellihide-close-delay = 400;
+        intellihide-enable-start-delay = 2000;
+        intellihide-hide-from-monitor-windows = false;
+        intellihide-hide-from-windows = false;
+        intellihide-key-toggle = [ "<Super>i" ];
+        intellihide-key-toggle-text = "<Super>i";
+        intellihide-only-secondary = false;
+        intellihide-persisted-state = -1;
+        intellihide-pressure-threshold = 100;
+        intellihide-pressure-time = 1000;
+        intellihide-reveal-delay = 0;
+        intellihide-revealed-hover = true;
+        intellihide-revealed-hover-limit-size = false;
+        intellihide-show-in-fullscreen = false;
+        intellihide-show-on-notification = false;
+        intellihide-use-pointer = true;
+        intellihide-use-pointer-limit-size = false;
+        intellihide-use-pressure = false;
         isolate-monitors = false;
         isolate-workspaces = false;
         leftbox-padding = -1;
@@ -261,10 +284,7 @@ with lib.hm.gvariant;
         '';
 
         panel-element-positions = ''
-          {
-          "0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],
-          "1":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]
-          }
+          {"1":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}
         '';
 
         panel-lengths = ''
@@ -282,10 +302,13 @@ with lib.hm.gvariant;
         };
 
         panel-side-margins = 0;
-        panel-side-padding = 8;
+        panel-side-padding = 4;
         panel-top-bottom-margins = 0;
         panel-top-bottom-padding = 0;
-
+        peek-mode = true;
+        prefs-opened = false;
+        preview-custom-opacity = 0;
+        preview-use-custom-opacity = true;
         primary-monitor = 0;
         progress-show-count = true;
         scroll-panel-delay = 200;
@@ -295,6 +318,7 @@ with lib.hm.gvariant;
         show-showdesktop-hover = false;
         show-tooltip = true;
         show-window-previews = true;
+        show-window-previews-timeout = 200;
         showdesktop-button-width = 13;
         status-icon-padding = 4;
         stockgs-force-hotcorner = true;
@@ -305,13 +329,21 @@ with lib.hm.gvariant;
         trans-dynamic-anim-time = 250;
         trans-panel-opacity = 0.0;
         trans-bg-color = "#" + config.lib.stylix.colors.base00;
+        trans-border-use-custom-color = true;
+        trans-border-custom-color = "rgba(255,255,255,0.30)";
+        trans-use-border = true;
         trans-use-custom-bg = true;
         trans-use-custom-gradient = false;
         trans-use-custom-opacity = true;
         trans-use-dynamic-opacity = true;
         tray-padding = 4;
         tray-size = 0;
-        window-preview-title-position = "TOP";
+        window-preview-animation-time = 200;
+        window-preview-fixed-y = true;
+        window-preview-padding = 16;
+        window-preview-show-title = false;
+        window-preview-size = 240;
+        window-preview-title-position = "BOTTOM";
       };
 
       "org/gnome/desktop/interface" = {

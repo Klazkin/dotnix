@@ -34,7 +34,7 @@
     let
       user = "matpac";
 
-      systems = {
+      systemConfs = {
         # Framework 13 Laptop
         framework = {
           theme = {
@@ -118,12 +118,14 @@
         };
       };
 
-      mkSystem = host: system:
+      mkSystem = host: systemConf:
         import ./hosts.nix ({
           inherit inputs;
           hostName = "${host}";
-          user = system.user or user;
-          theme = system.theme;
-        } // system);
-    in { nixosConfigurations = inputs.nixpkgs.lib.mapAttrs mkSystem systems; };
+          user = systemConf.user or user;
+          theme = systemConf.theme;
+        } // systemConf);
+    in {
+      nixosConfigurations = inputs.nixpkgs.lib.mapAttrs mkSystem systemConfs;
+    };
 }

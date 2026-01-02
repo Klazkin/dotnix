@@ -20,8 +20,8 @@
       shell_integration = true;
       upgrade = false;
 
-      "$schema" =
-        "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
+      # "$schema" =
+      #   "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
 
       console_title_template = "{{ .Folder }}";
 

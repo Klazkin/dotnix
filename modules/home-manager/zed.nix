@@ -4,9 +4,6 @@
     extensions = [ "nix" "toml" "elixir" "make" ];
 
     userSettings = {
-
-      lsp = { rust-analyzer = { binary = { path_lookup = true; }; }; };
-
       languages = {
         Nix = {
           language_servers = [ "nil" "!nixd" ];
@@ -14,9 +11,8 @@
         };
       };
 
-      assistant = {
+      agent = {
         enabled = true;
-        version = "2";
         default_model = {
           provider = "zed.dev";
           model = "claude-3-5-sonnet-latest";
@@ -27,8 +23,6 @@
       buffer_font_family = "JetBrainsMono Nerd Font";
       ui_font_family = "Noto Sans";
       buffer_font_weight = 200;
-      buffer_font_size = lib.mkForce 20;
-      ui_font_size = lib.mkForce 20;
 
       inlay_hints = {
         enabled = true;
@@ -55,6 +49,7 @@
       };
 
       base_keymap = "JetBrains";
+      title_bar = { show_user_picture = false; };
     };
   };
 }
