@@ -330,7 +330,7 @@ with lib.hm.gvariant;
         trans-panel-opacity = 0.0;
         trans-bg-color = "#" + config.lib.stylix.colors.base00;
         trans-border-use-custom-color = true;
-        trans-border-custom-color = "rgba(255,255,255,0.30)";
+        trans-border-custom-color = "rgba(255,255,255,0.10)";
         trans-use-border = true;
         trans-use-custom-bg = true;
         trans-use-custom-gradient = false;
