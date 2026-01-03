@@ -38,11 +38,11 @@
         # Framework 13 Laptop
         framework = {
           theme = {
-            stylix = "ayu-dark";
-            ghostty = "Ayu Mirage";
-            vscode = "Ayu Mirage Bordered";
-            zed = "Ayu Mirage";
-            wallpaper = ./wallpapers/20251205_093604.jpg;
+            stylix = "gruvbox-dark-hard";
+            ghostty = "Gruvbox Dark Hard";
+            vscode = "Gruvbox Material Dark";
+            zed = "Gruvbox Dark Hard";
+            wallpaper = ./wallpapers/manjaro.jpg;
             fontSize = 12;
             panelSize = 48;
             cursorSize = 32;
