@@ -1,7 +1,7 @@
 { theme, lib, config, ... }: {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "nix" "toml" "elixir" "make" ];
+    extensions = [ "nix" "toml" "elixir" "make" "comment" ];
 
     # todo find a way to disable shadows
     userSettings = {
