@@ -1,1 +1,1 @@
-{ pkgs, ... }: { home.packages = with pkgs; [ mpv ]; }
+{ pkgs, ... }: { home.packages = with pkgs; [ celluloid ]; }

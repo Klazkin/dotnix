@@ -177,6 +177,7 @@ in {
           "com.github.PintaProject.Pinta"
           "org.gnome.Snapshot"
           "dev.zed.Zed"
+          "org.gnome.Papers"
         ];
       };
 

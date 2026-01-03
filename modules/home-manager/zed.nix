@@ -14,7 +14,6 @@
         "tab_bar.background" = "#00000000";
         "tab.inactive_background" = "#00000000";
         "panel.background" = "#00000000";
-        "editor.background" = "#${config.lib.stylix.colors.base00}b3";
         "status_bar.background" = "#${config.lib.stylix.colors.base00}";
         "element.selected" = "#${config.lib.stylix.colors.base01}";
         "panel.focused_border" = "#${config.lib.stylix.colors.base0D}";

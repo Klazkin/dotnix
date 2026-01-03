@@ -79,7 +79,6 @@
     yazi
     bottom
     zellij
-    cava
   ];
 
   programs.htop.enable = true;

@@ -56,13 +56,11 @@
             /stylix.nix
             /zsh.nix
             /systemd-boot.nix
-            /mullvad.nix
           ];
 
           hmModules = [
             /discord.nix
             /ghostty.nix
-            /glance.nix
             /gnome.nix
             /minecraft.nix
             /oh-my-posh.nix
@@ -74,7 +72,6 @@
             /itch.nix
             /mpv.nix
             /godot.nix
-            /qbittorrent.nix
           ];
         };
 
@@ -113,7 +110,6 @@
             /zed.nix
             /zsh.nix
             /mpv.nix
-            /qbittorrent.nix
           ];
         };
       };
