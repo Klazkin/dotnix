@@ -247,9 +247,11 @@ with lib.hm.gvariant;
         group-apps-use-fixed-width = true;
         group-apps-use-launchers = false;
         hide-overview-on-startup = true;
-        highlight-appicon-hover-background-color = "red";
+        highlight-appicon-hover-background-color = "#"
+          + config.lib.stylix.colors.base02;
         highlight-appicon-hover-border-radius = 4;
-        highlight-appicon-pressed-background-color = "green";
+        highlight-appicon-pressed-background-color = "#"
+          + config.lib.stylix.colors.base03;
         hot-keys = false;
         hotkeys-overlay-combo = "TEMPORARILY";
         intellihide = false;

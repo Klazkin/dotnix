@@ -1,18 +1,7 @@
-{ lib, ... }: {
-
-  # runs python script to fix \\ escapes to work as intended
-  home.activation.postConfigHook = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    /run/current-system/sw/bin/python3 ~/dotnix/utils/oh-my-posh-fixer.py
-  '';
-
-  # removes old config for oh-my-posh
-  home.activation.removeOhMyPoshConfig =
-    lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
-      rm -f ~/.config/oh-my-posh/config.json
-    '';
+{ ... }: {
 
   programs.oh-my-posh = {
-    enable = true;
+    enable = false;
     enableZshIntegration = true;
     settings = {
       version = 3;
@@ -20,8 +9,8 @@
       shell_integration = true;
       upgrade = false;
 
-      # "$schema" =
-      #   "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
+      "$schema" =
+        "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
 
       console_title_template = "{{ .Folder }}";
 
