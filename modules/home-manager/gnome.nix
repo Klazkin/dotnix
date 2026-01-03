@@ -176,6 +176,7 @@ in {
           "org.gnome.Calculator"
           "com.github.PintaProject.Pinta"
           "org.gnome.Snapshot"
+          "dev.zed.Zed"
         ];
       };
 
