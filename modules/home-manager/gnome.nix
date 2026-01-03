@@ -2,7 +2,48 @@
 
 with lib.hm.gvariant;
 
-{
+let
+  primaryHex2Dec = hex:
+    let
+      hex2decDigits = rec {
+        "0" = 0;
+        "1" = 1;
+        "2" = 2;
+        "3" = 3;
+        "4" = 4;
+        "5" = 5;
+        "6" = 6;
+        "7" = 7;
+        "8" = 8;
+        "9" = 9;
+        a = 10;
+        b = 11;
+        c = 12;
+        d = 13;
+        e = 14;
+        f = 15;
+        A = a;
+        B = b;
+        C = c;
+        D = d;
+        E = e;
+        F = f;
+      };
+    in 16 * hex2decDigits."${builtins.substring 0 1 hex}"
+    + hex2decDigits."${builtins.substring 1 2 hex}";
+
+  borderColorHex = config.lib.stylix.colors.base03;
+
+  colorSubstring = color: index:
+    builtins.toString (primaryHex2Dec (builtins.substring index 2 color));
+
+  red = colorSubstring borderColorHex 0;
+  green = colorSubstring borderColorHex 2;
+  blue = colorSubstring borderColorHex 4;
+
+  borderColor = "rgba(${red}, ${green}, ${blue}, 0.70)";
+
+in {
   home.packages = with pkgs;
     [ dconf-editor gnome-tweaks gnome-settings-daemon ]
     ++ (with pkgs.gnomeExtensions; [
@@ -332,7 +373,7 @@ with lib.hm.gvariant;
         trans-panel-opacity = 0.0;
         trans-bg-color = "#" + config.lib.stylix.colors.base00;
         trans-border-use-custom-color = true;
-        trans-border-custom-color = "rgba(255,255,255,0.10)";
+        trans-border-custom-color = borderColor;
         trans-use-border = true;
         trans-use-custom-bg = true;
         trans-use-custom-gradient = false;
