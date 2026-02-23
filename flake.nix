@@ -89,6 +89,7 @@
           };
 
           nixModules = [
+            /mullvad.nix
             /boot.nix
             /gnome.nix
             /stylix.nix
@@ -107,11 +108,11 @@
             /spicetify.nix
             /zen.nix
             /gnome.nix
+            /gtk_apps.nix
             /oh-my-posh.nix
             /vscode.nix
             /zed.nix
             /zsh.nix
-            /mpv.nix
             /godot.nix
             /minecraft.nix
           ];

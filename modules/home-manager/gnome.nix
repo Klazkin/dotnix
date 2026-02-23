@@ -180,6 +180,13 @@ in {
           "org.gnome.Papers"
           "baobab"
           "gnome-extensions-app"
+          "io.bassi.Amberol"
+          "app.drey.Dialect"
+          "io.gitlab.adhami3310.Impression'"
+          "org.gnome.World.Iotas"
+          "dev.bragefuglseth.Keypunch.Devel"
+          "de.haeckerfelix.Fragments'"
+          "net.nokyan.Resources"
         ];
       };
 

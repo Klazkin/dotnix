@@ -73,6 +73,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    fastfetch
+    lazygit
     micro
     wget
     python313

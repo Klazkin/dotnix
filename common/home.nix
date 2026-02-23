@@ -70,10 +70,7 @@
 
   home.packages = with pkgs; [
     montserrat
-    fastfetch
-    lazygit
     cava
-
     pinta
     nixd # nix language server
     nil # also a nix lang server
