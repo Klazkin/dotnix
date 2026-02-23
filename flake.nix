@@ -97,7 +97,7 @@
             /coolercontrol.nix
             /nvidia.nix
             /steam.nix
-            /hdr
+            /hdr.nix
             /oled_font_patch.nix
           ];
 
