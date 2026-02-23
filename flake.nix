@@ -97,6 +97,8 @@
             /coolercontrol.nix
             /nvidia.nix
             /steam.nix
+            /hdr
+            /oled_font_patch.nix
           ];
 
           hmModules = [
@@ -110,6 +112,8 @@
             /zed.nix
             /zsh.nix
             /mpv.nix
+            /godot.nix
+            /minecraft.nix
           ];
         };
       };

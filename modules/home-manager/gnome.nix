@@ -178,6 +178,8 @@ in {
           "org.gnome.Snapshot"
           "dev.zed.Zed"
           "org.gnome.Papers"
+          "baobab"
+          "gnome-extensions-app"
         ];
       };
 
@@ -431,12 +433,14 @@ in {
     gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
+        gtk-hint-font-metrics=0
       '';
     };
 
     gtk4.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
+        gtk-hint-font-metrics=0
       '';
     };
   };

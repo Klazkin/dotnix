@@ -17,6 +17,8 @@
         "status_bar.background" = "#${config.lib.stylix.colors.base00}";
         "element.selected" = "#${config.lib.stylix.colors.base01}";
         "panel.focused_border" = "#${config.lib.stylix.colors.base0D}";
+        "panel.overlay_background" = "#${config.lib.stylix.colors.base02}";
+        "border" = "#${config.lib.stylix.colors.base02}";
       };
 
       languages = {

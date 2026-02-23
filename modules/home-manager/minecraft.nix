@@ -1,1 +1,1 @@
-{ pkgs, ... }: { home.packages = with pkgs; [ modrinth-app prismlauncher ]; }
+{ pkgs, ... }: { home.packages = with pkgs; [ prismlauncher ]; }
