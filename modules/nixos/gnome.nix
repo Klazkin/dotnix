@@ -15,6 +15,7 @@
     gnome.games.enable = false;
   };
 
+  # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/modules/services/desktop-managers/gnome.nix#L449-L471
   environment.gnome.excludePackages = with pkgs; [
     ### Excluded apps
     epiphany # web
@@ -22,6 +23,7 @@
     gnome-calculator
     gnome-calendar
     gnome-console
+    gnome-tour # tour of new features
     gnome-contacts
     gnome-maps
     gnome-music
