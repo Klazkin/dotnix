@@ -182,10 +182,10 @@ in {
           "gnome-extensions-app"
           "io.bassi.Amberol"
           "app.drey.Dialect"
-          "io.gitlab.adhami3310.Impression'"
+          "io.gitlab.adhami3310.Impression"
           "org.gnome.World.Iotas"
           "dev.bragefuglseth.Keypunch.Devel"
-          "de.haeckerfelix.Fragments'"
+          "de.haeckerfelix.Fragments"
           "net.nokyan.Resources"
         ];
       };
