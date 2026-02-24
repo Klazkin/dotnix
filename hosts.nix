@@ -1,8 +1,6 @@
 { inputs, user, hostName, nixModules ? [ ], hmModules ? [ ], theme, ... }:
 
 let
-  system = "x86_64-linux";
-
   specialArgs = {
     inherit inputs;
     inherit user;
@@ -30,4 +28,4 @@ let
         ++ mkHomeManagerModules hmModules;
     }
   ];
-in inputs.nixpkgs.lib.nixosSystem { inherit system modules specialArgs; }
+in inputs.nixpkgs.lib.nixosSystem { inherit modules specialArgs; }

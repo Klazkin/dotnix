@@ -55,17 +55,12 @@
     enableZshIntegration = true;
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
-
   programs.git = {
     enable = true;
-    userName = "matpac";
-    userEmail = "matvei.matpac@gmail.com";
+    settings.user = {
+      name = "matpac";
+      email = "matvei.matpac@gmail.com";
+    };
   };
 
   home.packages = with pkgs; [

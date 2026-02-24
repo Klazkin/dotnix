@@ -1,19 +1,16 @@
 { pkgs, ... }: {
   # Gnome
-  services = {
-    xserver = {
-      displayManager.gdm.enable = true;
-      desktopManager.gnome = {
-        enable = true;
-        extraGSettingsOverridePackages = [ pkgs.mutter ];
-        extraGSettingsOverrides =
-          "  [org.gnome.desktop.peripherals.touchpad]\n  click-method='default'\n  # [org.gnome.mutter]\n  # experimental-features=['scale-monitor-framebuffer']\n";
-      };
-    };
-
-    # disable games
-    gnome.games.enable = false;
+  services.desktopManager.gnome = {
+    extraGSettingsOverridePackages = [ pkgs.mutter ];
+    extraGSettingsOverrides =
+      "  [org.gnome.desktop.peripherals.touchpad]\n  click-method='default'\n  # [org.gnome.mutter]\n  # experimental-features=['scale-monitor-framebuffer']\n";
   };
+
+  # Gnome Display Manager
+  services.displayManager.gdm.enable = true;
+
+  # disable gnome games
+  services.gnome.games.enable = false;
 
   # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/modules/services/desktop-managers/gnome.nix#L449-L471
   environment.gnome.excludePackages = with pkgs; [

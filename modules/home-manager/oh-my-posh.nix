@@ -1,7 +1,7 @@
 { ... }: {
 
   programs.oh-my-posh = {
-    enable = false;
+    enable = true;
     enableZshIntegration = true;
     settings = {
       version = 3;
