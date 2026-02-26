@@ -1,6 +1,8 @@
 { pkgs, ... }: {
+
   # Gnome
   services.desktopManager.gnome = {
+    enable = true;
     extraGSettingsOverridePackages = [ pkgs.mutter ];
     extraGSettingsOverrides =
       "  [org.gnome.desktop.peripherals.touchpad]\n  click-method='default'\n  # [org.gnome.mutter]\n  # experimental-features=['scale-monitor-framebuffer']\n";
