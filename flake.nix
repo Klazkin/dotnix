@@ -62,6 +62,7 @@
             /discord.nix
             /ghostty.nix
             /gnome.nix
+            /gtk_apps.nix
             /minecraft.nix
             /oh-my-posh.nix
             /spicetify.nix
@@ -70,7 +71,6 @@
             /zen.nix
             /zsh.nix
             /itch.nix
-            /mpv.nix
             /godot.nix
           ];
         };
