@@ -44,7 +44,7 @@
             zed = "Gruvbox Dark Hard";
             wallpaper = ./wallpapers/manjaro.jpg;
             fontSize = 12;
-            panelSize = 32;
+            panelSize = 40;
             cursorSize = 32;
           };
 
