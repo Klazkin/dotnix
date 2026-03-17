@@ -12,7 +12,7 @@
       unfocused-split-opacity = 1.0;
       window-theme = "dark";
       shell-integration = "zsh";
-      gtk-ttilebar = true;
+      gtk-titlebar = true;
       gtk-titlebar-style = "tabs";
       gtk-toolbar-style = "flat";
       gtk-wide-tabs = false;
