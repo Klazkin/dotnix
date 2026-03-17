@@ -12,7 +12,10 @@
       unfocused-split-opacity = 1.0;
       window-theme = "dark";
       shell-integration = "zsh";
-      gtk-titlebar = false;
+      gtk-ttilebar = true;
+      gtk-titlebar-style = "tabs";
+      gtk-toolbar-style = "flat";
+      gtk-wide-tabs = false;
       # use stylix bg color to match the rest of the system
       background = config.lib.stylix.colors.base00;
     };

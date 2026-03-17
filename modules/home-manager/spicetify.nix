@@ -7,7 +7,11 @@
       inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   in {
     enable = true;
-    enabledExtensions = with spicePkgs.extensions; [ shuffle ];
+    enabledExtensions = with spicePkgs.extensions; [
+      shuffle
+      adblock
+      hidePodcasts
+    ];
     enabledCustomApps = with spicePkgs.apps; [ newReleases ncsVisualizer ];
     # theme = spicePkgs.themes.catppuccin; # managed by stylix
   };
