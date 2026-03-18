@@ -32,7 +32,7 @@ let
     in 16 * hex2decDigits."${builtins.substring 0 1 hex}"
     + hex2decDigits."${builtins.substring 1 2 hex}";
 
-  borderColorHex = config.lib.stylix.colors.base03;
+  borderColorHex = config.lib.stylix.colors.base02;
 
   colorSubstring = color: index:
     builtins.toString (primaryHex2Dec (builtins.substring index 2 color));

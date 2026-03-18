@@ -78,11 +78,10 @@
         # Home Desktop PC
         desktop = {
           theme = {
-            stylix = "ayu-mirage";
-            ghostty = "Ayu Mirage";
-            vscode = "Ayu Mirage Bordered";
-            zed = "Ayu Mirage";
-            wallpaper = ./wallpapers/pexels-photo-772803-modifed.jpeg;
+            stylix = "everforest-dark-hard";
+            ghostty = "Everforest Dark Hard";
+            zed = "Everforest Dark Hard (material)";
+            wallpaper = ./wallpapers/pexels-oskar-gross-1074333632-34125838.jpg;
             fontSize = 10;
             panelSize = 32;
             cursorSize = 24;
@@ -110,7 +109,6 @@
             /gnome.nix
             /gtk_apps.nix
             /oh-my-posh.nix
-            /vscode.nix
             /zed.nix
             /zsh.nix
             /godot.nix
