@@ -19,8 +19,6 @@
     ### Excluded apps
     epiphany # web
     gnome-text-editor
-    gnome-calculator
-    gnome-calendar
     gnome-console
     gnome-tour # tour of new features
     gnome-contacts
@@ -45,5 +43,7 @@
     # nautilus # file manager
     # papers # document viewer
     # snapshot # webcam
+    # gnome-calculator
+    # gnome-calendar
   ];
 }

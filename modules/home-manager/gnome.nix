@@ -419,9 +419,30 @@ in {
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
         {
-          name = "ghostty";
+          name = "terminal";
           command = "ghostty";
           binding = "<Super>t";
+        };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
+        {
+          name = "editor";
+          command = "zeditor";
+          binding = "<Super>z";
+        };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
+        {
+          name = "dotnix";
+          command = "zeditor ~/dotnix";
+          binding = "<Shift><Super>z";
+        };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" =
+        {
+          name = "browser";
+          command = "zen-beta";
+          binding = "<Super>f";
         };
 
       "org/gnome/shell/extensions/system-monitor" = {
