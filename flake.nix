@@ -113,6 +113,7 @@
             /zsh.nix
             /godot.nix
             /minecraft.nix
+            /starship.nix
           ];
         };
       };

@@ -22,6 +22,7 @@
       zz = "zeditor";
       update = "(cd ~/dotnix && py update.py)";
       update-nogit = "sudo nixos-rebuild switch --flake ~/dotnix";
+      cat = "bat -p";
     };
 
     oh-my-zsh = {
