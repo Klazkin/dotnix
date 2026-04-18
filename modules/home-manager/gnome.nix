@@ -433,15 +433,8 @@ in {
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
         {
-          name = "dotnix";
-          command = "zeditor ~/dotnix";
-          binding = "<Shift><Super>z";
-        };
-
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" =
-        {
-          name = "browser";
-          command = "zen-beta";
+          name = "files";
+          command = "nautilus";
           binding = "<Super>f";
         };
 

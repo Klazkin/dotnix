@@ -28,7 +28,7 @@
   programs.git = {
     enable = true;
     settings.user = {
-      name = "matpac";
+      name = "klazkin";
       email = "matvei.matpac@gmail.com";
     };
   };
@@ -40,9 +40,10 @@
     nixd # nix language server
     nil # also a nix lang server
     nixfmt-classic # nix formatter
+    bottles
   ];
 
-  programs.bat = { enable = true; };
+  programs.bat.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
