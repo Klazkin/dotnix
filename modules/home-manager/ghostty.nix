@@ -1,4 +1,13 @@
-{ config, theme, ... }: {
+{ config, theme, pkgs, ... }:
+
+let
+  # for some reason the flat style doesn't properly respect gtk css primary fg color
+  custom_css = pkgs.writeText "~/.ghostty/custom.css" ''
+    tabbar {
+      color: #${config.lib.stylix.colors.base05};
+    }
+  '';
+in {
 
   programs.ghostty = {
     enable = true;
@@ -18,6 +27,7 @@
       gtk-wide-tabs = false;
       # use stylix bg color to match the rest of the system
       background = config.lib.stylix.colors.base00;
+      gtk-custom-css = "${custom_css}";
     };
   };
 }

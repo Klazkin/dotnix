@@ -187,6 +187,7 @@ in {
           "dev.bragefuglseth.Keypunch.Devel"
           "de.haeckerfelix.Fragments"
           "net.nokyan.Resources"
+          "GTK Application"
         ];
       };
 
