@@ -11,5 +11,6 @@
     iotas # notes
     keypunch # monkey type clone
     resources # desktop resources
+    footage # simple video editor
   ];
 }
