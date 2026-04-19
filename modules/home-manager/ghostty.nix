@@ -2,7 +2,7 @@
 
 let
   # for some reason the flat style doesn't properly respect gtk css primary fg color
-  custom_css = pkgs.writeText "~/.ghostty/custom.css" ''
+  custom_css = pkgs.writeText "ghostty_custom.css" ''
     tabbar {
       color: #${config.lib.stylix.colors.base05};
     }
