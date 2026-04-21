@@ -113,7 +113,7 @@
             /zed.nix
             /zsh.nix
             /godot.nix
-            /minecraft.nix
+
             /obs.nix
           ];
         };
