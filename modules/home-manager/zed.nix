@@ -1,7 +1,18 @@
 { theme, lib, config, ... }: {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "nix" "toml" "elixir" "make" "comment" ];
+    extensions = [
+      "nix"
+      "make"
+      "comment"
+      "blueprint"
+      "everforest"
+      "sql"
+      "tombi"
+      "git-firefly"
+      "postgres-language-server"
+      "xml"
+    ];
 
     # todo find a way to disable shadows
     userSettings = {
@@ -28,14 +39,7 @@
         };
       };
 
-      agent = {
-        enabled = true;
-        default_model = {
-          provider = "zed.dev";
-          model = "claude-3-5-sonnet-latest";
-        };
-      };
-
+      agent.enabled = false;
       load_direnv = "shell_hook";
       buffer_font_family = "JetBrainsMono Nerd Font";
       ui_font_family = "Noto Sans";
@@ -66,7 +70,11 @@
       };
 
       base_keymap = "JetBrains";
-      title_bar = { show_user_picture = false; };
+
+      title_bar = {
+        show_user_picture = false;
+        show_sign_in = false;
+      };
     };
   };
 }

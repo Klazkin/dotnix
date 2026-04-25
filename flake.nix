@@ -113,7 +113,6 @@
             /zed.nix
             /zsh.nix
             /godot.nix
-
             /obs.nix
           ];
         };
