@@ -56,6 +56,7 @@
             /stylix.nix
             /zsh.nix
             /systemd-boot.nix
+            /mullvad.nix
           ];
 
           hmModules = [
@@ -66,7 +67,6 @@
             /minecraft.nix
             /oh-my-posh.nix
             /spicetify.nix
-            /vscode.nix
             /zed.nix
             /zen.nix
             /zsh.nix
