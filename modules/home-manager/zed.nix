@@ -12,10 +12,17 @@
       "git-firefly"
       "postgres-language-server"
       "xml"
+      "typos"
     ];
 
     # todo find a way to disable shadows
     userSettings = {
+      colorize_brackets = true;
+      diagnostics.inline = {
+        update_debounce_ms = 100;
+        enabled = true;
+      };
+
       "experimental.theme_overrides" = {
         "background" = "#${config.lib.stylix.colors.base00}b3";
         "background.appearance" = "transparent";
