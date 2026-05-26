@@ -12,7 +12,7 @@
       "git-firefly"
       "postgres-language-server"
       "xml"
-      "markdownlint"
+      "markdown-oxide"
       "typos"
     ];
 
