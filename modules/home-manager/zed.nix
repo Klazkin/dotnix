@@ -12,6 +12,7 @@
       "git-firefly"
       "postgres-language-server"
       "xml"
+      "markdownlint"
       "typos"
     ];
 
@@ -19,7 +20,7 @@
     userSettings = {
       colorize_brackets = true;
       diagnostics.inline = {
-        update_debounce_ms = 100;
+        update_debounce_ms = 50;
         enabled = true;
       };
 
