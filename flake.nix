@@ -95,7 +95,6 @@
             /zsh.nix
             /grub.nix
             /coolercontrol.nix
-            /nvidia.nix
             /steam.nix
             /hdr.nix
             /oled_font_patch.nix
