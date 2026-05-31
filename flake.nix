@@ -4,10 +4,10 @@
 
   inputs = {
     # NixOS official package source
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -100,7 +100,6 @@
             /hdr.nix
             /oled_font_patch.nix
             /swap.nix
-            /openrgb.nix
           ];
 
           hmModules = [
