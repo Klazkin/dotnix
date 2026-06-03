@@ -11,6 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    gnome-rounded-blur.url = "github:Klazkin/nix-gnome-rounded-blur";
+
     stylix.url = "github:danth/stylix/release-26.05";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";

@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
+
+  imports = [ inputs.gnome-rounded-blur.nixosModules.default ];
 
   # Gnome
   services.desktopManager.gnome = {

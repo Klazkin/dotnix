@@ -133,7 +133,7 @@ in {
       "org/gnome/shell/extensions/blur-my-shell" = {
         hacks-level = 1;
         pipelines =
-          "{'pipeline_default': {'name': <'PanelBlur'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <1>, 'unscaled_radius': <20>}>}>]>}, 'pipeline_default_rounded': {'name': <'Overview'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_31109415505246'>, 'params': <{'unscaled_radius': <20>, 'brightness': <0.29999999999999999>}>}>]>}}";
+          "{'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <20>, 'brightness': <0.7>, 'unscaled_radius': <20>}>}>]>}}";
         settings-version = 2;
       };
 
@@ -212,11 +212,11 @@ in {
         true;
 
       "org/gnome/shell/extensions/blur-my-shell/lockscreen".pipeline =
-        "pipeline_default_rounded";
+        "pipeline_default";
 
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         blur = true;
-        pipeline = "pipeline_default_rounded";
+        pipeline = "pipeline_default";
         stlye-components = 2;
       };
 
