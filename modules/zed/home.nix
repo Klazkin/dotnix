@@ -3,6 +3,28 @@
     enable = true;
     extensions = [ "nix" "toml" "elixir" "make" ];
 
+    # [
+    #   {
+    #     "context": "Editor",
+    #     "unbind": {
+    #       "f2": "editor::GoToDiagnostic"
+    #     }
+    #   },
+    #   {
+    #     "context": "Editor && vim_mode == insert",
+    #     "bindings": {}
+    #   },
+    #   {
+    #     "context": "Workspace",
+    #     "bindings": {}
+    #   }
+    # ]
+    #
+    userKeymaps = [{
+      context = "Editor";
+      unbind = { f2 = "editor::GoToDiagnostic"; };
+    }];
+
     userSettings = {
 
       lsp = { rust-analyzer = { binary = { path_lookup = true; }; }; };
