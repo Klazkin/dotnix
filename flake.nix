@@ -100,7 +100,6 @@
             /steam.nix
             /hdr.nix
             /oled_font_patch.nix
-            /swap.nix
           ];
 
           hmModules = [

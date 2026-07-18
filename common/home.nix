@@ -34,6 +34,8 @@
   };
 
   home.packages = with pkgs; [
+    unrar
+    lutris
     montserrat
     cava
     pinta
