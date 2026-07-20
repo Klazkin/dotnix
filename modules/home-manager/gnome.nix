@@ -524,8 +524,8 @@ in {
         transparency-vis = false;
         use-custom-colors = true;
         vertical-offset = 0;
-        visualizer-bar-width = 1;
-        visualizer-bars = 16;
+        visualizer-bar-width = 2;
+        visualizer-bars = 10;
         visualizer-height = 50;
         visualizer-padding = 5;
         visualizer-style = 3;
