@@ -14,6 +14,7 @@
       "xml"
       "markdown-oxide"
       "typos"
+      "gdscript"
     ];
 
     # todo find a way to disable shadows
