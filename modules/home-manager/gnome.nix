@@ -1,4 +1,4 @@
-{ pkgs, config, lib, theme, ... }:
+{ pkgs, config, lib, theme, inputs, ... }:
 
 with lib.hm.gvariant;
 
@@ -32,27 +32,42 @@ let
     in 16 * hex2decDigits."${builtins.substring 0 1 hex}"
     + hex2decDigits."${builtins.substring 1 2 hex}";
 
+  fgColorHex = config.lib.stylix.colors.base05;
+  bgColorHex = config.lib.stylix.colors.base00;
   borderColorHex = config.lib.stylix.colors.base02;
 
   colorSubstring = color: index:
     builtins.toString (primaryHex2Dec (builtins.substring index 2 color));
 
-  red = colorSubstring borderColorHex 0;
-  green = colorSubstring borderColorHex 2;
-  blue = colorSubstring borderColorHex 4;
+  fgRed = colorSubstring fgColorHex 0;
+  fgGreen = colorSubstring fgColorHex 2;
+  fgBlue = colorSubstring fgColorHex 4;
 
-  borderColor = "rgba(${red}, ${green}, ${blue}, 0.70)";
+  bgRed = colorSubstring bgColorHex 0;
+  bgGreen = colorSubstring bgColorHex 2;
+  bgBlue = colorSubstring bgColorHex 4;
+
+  borderRed = colorSubstring borderColorHex 0;
+  borderGreen = colorSubstring borderColorHex 2;
+  borderBlue = colorSubstring borderColorHex 4;
+
+  fgColor = "${fgRed},${fgGreen},${fgBlue}";
+  bgColor = "${bgRed},${bgGreen},${bgBlue}";
+  borderColor = "rgba(${borderRed}, ${borderGreen}, ${borderBlue}, 0.70)";
 
 in {
   home.packages = with pkgs;
-    [ dconf-editor gnome-tweaks gnome-settings-daemon ]
-    ++ (with pkgs.gnomeExtensions; [
+    [
+      dconf-editor
+      gnome-tweaks
+      gnome-settings-daemon
+      inputs.dynamic-music-pill.packages.${pkgs.system}.default
+    ] ++ (with pkgs.gnomeExtensions; [
       appindicator
       blur-my-shell
       accent-directories
       dash-to-panel
       weather-or-not
-      media-controls
       quick-settings-audio-panel
       gsconnect
     ]);
@@ -70,7 +85,7 @@ in {
           "accent-directories@taiwbi.com"
           "system-monitor@gnome-shell-extensions.gcampax.github.com"
           "dash-to-panel@jderose9.github.com"
-          "mediacontrols@cliffniff.github.com"
+          "dynamic-music-pill@andbal"
           "quick-settings-audio-panel@rayzeq.github.io"
           "gsconnect@andyholmes.github.io"
         ];
@@ -217,7 +232,7 @@ in {
       "org/gnome/shell/extensions/blur-my-shell/overview" = {
         blur = true;
         pipeline = "pipeline_default";
-        stlye-components = 2;
+        style-components = 2;
       };
 
       "org/gnome/shell/extensions/blur-my-shell/panel" = {
@@ -402,7 +417,7 @@ in {
       };
 
       "org/gnome/desktop/interface" = {
-        # color-scheme = "prefer-dark"; # handeled by stylx
+        # color-scheme = "prefer-dark"; # handled by stylx
         show-battery-percentage = true;
       };
 
@@ -445,6 +460,56 @@ in {
         show-memory = false;
         show-swap = false;
         show-upload = false;
+      };
+
+      "org/gnome/shell" = { always-show-log-out = true; };
+
+      "org/gnome/shell/extensions/dynamic-music-pill" = {
+        action-double-click = "play_pause";
+        action-left-click = "toggle_menu";
+        action-right-click = "open_player_menu";
+        always-show-pill = false;
+        border-radius = 0;
+        custom-bg-color = bgColor;
+        custom-button-1 = "none";
+        custom-text-color = fgColor;
+        edge-margin = 0;
+        enable-custom-buttons = false;
+        enable-gamemode = true;
+        enable-lyrics = true;
+        enable-scroll-controls = false;
+        enable-shadow = true;
+        enable-transparency = true;
+        freeze-scroll-on-pause = true;
+        has-seen-first-hint = true;
+        hide-default-player = true;
+        hide-text = false;
+        hover-delay = 1000;
+        lyric-fade-duration = 500;
+        lyrics-language-preference = 1;
+        panel-art-size = 28;
+        panel-pill-height = 22;
+        panel-pill-width = 220;
+        pill-dynamic-width = false;
+        popup-custom-width = 400;
+        popup-enable-shadow = true;
+        popup-follow-custom-bg = true;
+        popup-follow-custom-text = true;
+        popup-follow-radius = false;
+        popup-follow-transparency = false;
+        popup-hide-on-leave = false;
+        popup-hide-pill-visualizer = false;
+        popup-show-album-title = true;
+        popup-show-player-selector = false;
+        popup-show-vinyl = true;
+        popup-show-visualizer = false;
+        popup-use-custom-width = false;
+        popup-vinyl-rotate = false;
+        popup-vinyl-square = true;
+        position-mode = 1;
+        scroll-text = true;
+        shadow-blur = 0;
+        shadow-opacity = 0;
       };
     };
   };

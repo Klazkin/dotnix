@@ -24,6 +24,8 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dynamic-music-pill.url = "github:Andbal23/dynamic-music-pill";
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
