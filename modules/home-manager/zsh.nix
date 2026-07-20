@@ -28,7 +28,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
-      # theme = "agnoster"; theme is managed by oh-my-posh
+      theme = "eastwood";
     };
   };
 }
