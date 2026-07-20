@@ -47,9 +47,9 @@
             vscode = "Gruvbox Material Dark";
             zed = "Gruvbox Dark Hard";
             wallpaper = ./wallpapers/manjaro.jpg;
-            fontSize = 12;
-            panelSize = 40;
-            cursorSize = 32;
+            fontSize = 10;
+            panelSize = 32;
+            cursorSize = 24;
           };
 
           nixModules = [
