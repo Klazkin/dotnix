@@ -69,7 +69,6 @@
             /gnome.nix
             /gtk_apps.nix
             /minecraft.nix
-            /oh-my-posh.nix
             /spicetify.nix
             /zed.nix
             /zen.nix
@@ -111,11 +110,11 @@
             /zen.nix
             /gnome.nix
             /gtk_apps.nix
-            /oh-my-posh.nix
             /zed.nix
             /zsh.nix
             /godot.nix
             /obs.nix
+            /ollama.nix
           ];
         };
       };

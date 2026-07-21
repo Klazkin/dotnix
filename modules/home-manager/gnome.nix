@@ -489,10 +489,10 @@ in {
         hover-delay = 1000;
         lyric-fade-duration = 500;
         lyrics-language-preference = 1;
-        panel-art-size = 26;
+        panel-art-size = 24;
         panel-pill-height = 26;
-        panel-pill-width = 270;
-        pill-dynamic-width = false;
+        panel-pill-width = 260;
+        pill-dynamic-width = true;
         popup-custom-width = 400;
         popup-enable-shadow = true;
         popup-follow-custom-bg = true;
@@ -527,7 +527,7 @@ in {
         visualizer-bar-width = 2;
         visualizer-bars = 10;
         visualizer-height = 50;
-        visualizer-padding = 5;
+        visualizer-padding = 4;
         visualizer-style = 3;
       };
     };

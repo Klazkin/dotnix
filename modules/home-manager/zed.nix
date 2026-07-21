@@ -48,7 +48,17 @@
         };
       };
 
-      agent.enabled = false;
+      edit_predictions = {
+        provider = "ollama";
+        ollama = {
+          model = "qwen2.5-coder:7b-base";
+          max_output_tokens = 512;
+          api_url = "http://localhost:11434";
+        };
+      };
+
+      agent = { dock = "right"; };
+
       load_direnv = "shell_hook";
       buffer_font_family = "JetBrainsMono Nerd Font";
       ui_font_family = "Noto Sans";
