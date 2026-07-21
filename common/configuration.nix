@@ -98,6 +98,13 @@
     enable32Bit = true;
   };
 
+  security.sudo = {
+    # set no pwfeedback
+    extraConfig = ''
+      Defaults pwfeedback
+    '';
+  };
+
   # lower boot time by skipping the wait for network
   systemd.services.NetworkManager-wait-online.enable = false;
 }
