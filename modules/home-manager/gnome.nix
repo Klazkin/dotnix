@@ -70,6 +70,7 @@ in {
       weather-or-not
       quick-settings-audio-panel
       gsconnect
+      paperwm
     ]);
 
   dconf = {

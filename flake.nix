@@ -32,6 +32,11 @@
     };
 
     nixcord = { url = "github:kaylorben/nixcord"; };
+
+    # noctalia = {
+    #   url = "github:noctalia-dev/noctalia";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = { self, ... }@inputs:
@@ -101,6 +106,8 @@
             /steam.nix
             /hdr.nix
             /oled_font_patch.nix
+            /viaqmk.nix
+            # /noctalia.nix
           ];
 
           hmModules = [
