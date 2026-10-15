@@ -13,15 +13,9 @@
 
   networking = {
     hostName = hostName;
-    networkmanager = {
-      enable = true;
-      wifi.backend = "iwd"; # "wpa_supplicant";
-      unmanaged = [ ]; # Ensure NM isn't explicitly ignoring USB dongles
-      wifi.powersave = false; # for desktop and steam frame dongle
-    };
+    networkmanager = { enable = true; };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModprobeConfig = ''
     options cfg80211 ieee80211_regdom=EE
   '';
@@ -33,10 +27,17 @@
       443 # https
       25565 # minecraft
       8001 # 3DS local staming
+      # steam streaming
       27036
       27037
     ];
-    allowedUDPPorts = [ 25565 27036 10400 10401 ];
+    allowedUDPPorts = [
+      25565
+      # steam streaming
+      27036
+      10400
+      10401
+    ];
     allowedTCPPortRanges = [{ # KDE Connect range
       from = 1716;
       to = 1764;
@@ -121,16 +122,6 @@
 
     extraPackages = with pkgs; [ libva mesa libva-utils ];
   };
-
-  boot.kernelPatches = [{
-    name = "amdgpu-ignore-ctx-privileges";
-    patch = pkgs.fetchpatch {
-      name = "cap_sys_nice_begone.patch";
-      url =
-        "https://github.com/Frogging-Family/community-patches/raw/master/linux61-tkg/cap_sys_nice_begone.mypatch";
-      hash = "sha256-Y3a0+x2xvHsfLax/uwycdJf3xLxvVfkfDVqjkxNaYEo=";
-    };
-  }];
 
   security.sudo = {
     # set no pwfeedback

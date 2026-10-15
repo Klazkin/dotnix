@@ -7,9 +7,4 @@
       true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true;
   };
-
-  programs.gamescope = { # might not be needed?
-    enable = true;
-    capSysNice = true;
-  };
 }
