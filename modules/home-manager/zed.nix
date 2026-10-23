@@ -1,4 +1,4 @@
-{ theme, lib, config, ... }: {
+{ theme, lib, config, pkgs, ... }: {
   programs.zed-editor = {
     enable = true;
     extensions = [
@@ -15,6 +15,7 @@
       "markdown-oxide"
       "typos"
       "gdscript"
+      "java"
     ];
 
     # todo find a way to disable shadows
@@ -55,6 +56,13 @@
           max_output_tokens = 512;
           api_url = "http://localhost:11434";
         };
+      };
+
+      lsp.jdtls.settings = {
+        jdtls_launcher = "${pkgs.jdt-language-server}/bin/jdtls";
+        java_home = "${pkgs.jdk21.home}";
+        check_updates = "never";
+        jdk_auto_download = false;
       };
 
       agent = { dock = "right"; };
