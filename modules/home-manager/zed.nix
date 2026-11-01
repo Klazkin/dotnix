@@ -72,9 +72,7 @@
         context = "Editor";
         unbind."ctrl-down" = "editor::MoveToEnd";
       }
-      {
-        bindings."ctrl-down" = [ "editor::MoveDownByLines" { lines = 5; } ];
-      }
+      { bindings."ctrl-down" = [ "editor::MoveDownByLines" { lines = 5; } ]; }
       { bindings."ctrl-up" = [ "editor::MoveUpByLines" { lines = 5; } ]; }
       { bindings."ctrl-f3" = "agent::FocusAgent"; }
     ];
@@ -237,8 +235,6 @@
       ui_font_family = "Noto Sans";
       buffer_font_weight = 300.0;
       ui_font_weight = 300.0;
-      ui_font_size = 15;
-      buffer_font_size = 13;
       buffer_line_height = "comfortable";
 
       inlay_hints = {
